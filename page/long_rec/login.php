@@ -1,5 +1,5 @@
 <?php
-include '../connection/log_in.php';
+include '../../connection/log_in.php';
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +8,8 @@ include '../connection/log_in.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/style-Enz.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../../css/style-Enz.css">
+  <link rel="stylesheet" href="../../css/style.css">
   
   <title>FONART Iniciar sesión</title>
 </head>
@@ -17,13 +17,13 @@ include '../connection/log_in.php';
 <body>
 
 <?php
-include '../connection/mens.php';
+include '../../connection/mens.php';
 ?>
   
  <header class="encabezado">
     <div class="logo">
       <a class="link-enz" href="https://www.gob.mx/fonart" target="_black">
-        <img src="../assets/logofonart.png" alt="" ></a>
+        <img src="../../assets/logofonart.png" alt="" ></a>
     </div>
     <nav class="nav-l">
       <a href="" class="nav-link">Inicio</a>
@@ -38,7 +38,7 @@ include '../connection/mens.php';
       <input type="submit" name="submit" class="btn" value="Continuar">
 
       <p>¿Eres nuevo en FONART?</p>
-      <a href="registro.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
+      <a href="record.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
     </form>
 
   </div>

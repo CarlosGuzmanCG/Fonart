@@ -1,5 +1,5 @@
 <?php
-include '../connection/regist.php';
+include '../../connection/regist.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,20 +9,20 @@ include '../connection/regist.php';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro</title>
-  <link rel="stylesheet" href="../css/style.css">
-  <link rel="stylesheet" href="../css/style-Enz.css"> 
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/style-Enz.css"> 
 </head>
 
 <body>
 
 <?php
-include '../connection/mens.php';
+include '../../connection/mens.php';
 ?>
 
   <header class="encabezado">
     <div class="logo">
       <a class="link-enz" href="https://www.gob.mx/fonart" target="_black">
-        <img src="../assets/logofonart.png" alt=""></a>
+        <img src="../../assets/logofonart.png" alt=""></a>
     </div>
     <nav class="nav-l">
       <a href="" class="nav-link">Inicio</a>

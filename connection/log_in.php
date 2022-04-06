@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
     }else if($puesto['usuario_rol']==2){
       header('location:prueba3.html');
     }else if($puesto['usuario_rol']==3){
-      header('location:prueba3.html');
+      header('location:test3.html');
     }
   }else{
     $mensaje[] = 'Contraseña o Usuario incorrecto';
