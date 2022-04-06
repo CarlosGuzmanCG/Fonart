@@ -1,0 +1,139 @@
+body {
+  background-color: var(--light-white);
+}
+
+.mensaje{
+  position: sticky;
+  top:0; left: 0; right: 0;
+  padding: 15px 10px;
+  background-color: var(--red);
+  text-align: center;
+  z-index: 1000;
+  box-shadow: var(--box-shadow);
+  font-size: 20px;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.btn,
+.btnCreaton,
+.delete-btn,
+.option-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--white);
+  border-radius: 6px;
+  text-transform: none;
+}
+
+.btn:hover,
+.btnCreaton:hover,
+.delete-btn,
+.option-btn {
+  background-color: var(--black);
+}
+
+.btnCreaton {
+  background-color: var(--blue);
+  margin-top: 10px;
+}
+
+.btn {
+  background-color: var(--blue);
+  margin-top: 10px;
+}
+
+.delete-btn {
+  background-color: var(--red);
+}
+
+.option-btn {
+  background-color: var(--orange);
+}
+
+.line {
+  height: 15px;
+  width: 250px;
+  border-color: black;
+  background-color: white;
+}
+
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+}
+
+:root {
+  --blue: #3498db;
+  --red: #4e2f2b;
+  --orange: #746957;
+  --black: rgb(248, 6, 6);
+  --white: rgb(243, 243, 243);
+  --light-bg: rgba(0, 0, 0, 0.24);
+  --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  --border: 2px solid var(--black);
+}
+
+.formulario-reg {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.formulario-reg form {
+  width: 500px;
+  border-radius: 5px;
+  border: var(--border);
+  padding: 20px;
+  text-align: center;
+  background-color: var(--white);
+}
+
+.formulario-reg form h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-transform: none;
+  color: var(--black);
+}
+
+.formulario-reg form .box {
+  width: 100%;
+  border-radius: 5px;
+  border: var(--border);
+  padding: 12px 14px;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.formulario-reg form p {
+  margin-top: 20px;
+  font-size: 20px;
+  color: var(--box-shadow);
+}
+
+.formulario-reg form p a {
+  color: #0b71e6;
+}
+
+.formulario-reg form p a:hover {
+  text-decoration: underline;
+}
