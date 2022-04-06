@@ -23,3 +23,9 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
 
 - [x] Registro
 - [x] Inicio de sesión por rol
+- [] obtener productos de la DB
+- Administrador:
+  - - [] Eliminar productos
+  - - [] Registrar administradores
+  - - [] Registrar vendedores
+  - - [] Ver productos
