@@ -16,10 +16,10 @@ if(isset($_POST['submit'])){
   }else{
     mysqli_query($conn, "INSERT INTO `usuario` (nombre_usua,apellido_usua,email_usua,password_usua,rol_id) VALUES ('$name','$lastName','$email','$pass','$rol')") or die ('consulta fallada 2');
     $mensaje[] = 'registro exitoso!';
-    header('location:login.php');
+    header('location:../../page/long_rec/login.php');
   }
   }else{
     $mensaje[] = 'Contraseñas diferentes, verificar!';
   }
-}
+};
 ?>

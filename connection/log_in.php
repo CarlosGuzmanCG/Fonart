@@ -1,5 +1,6 @@
 <?php
 include 'conf.php';
+session_start();
 
 if(isset($_POST['submit'])){
 
@@ -10,8 +11,8 @@ if(isset($_POST['submit'])){
 
   if(mysqli_num_rows($select) > 0){
     $row = mysqli_fetch_array($select);
-    $row2 = mysqli_fetch_assoc($select);
     $puesto['usuario_rol'] = $row['rol_id'];
+    $_SESSION['usua_id'] = $row['id_usua']; 
 
     /*
     while($row = mysqli_fetch_array($select)){
@@ -22,11 +23,11 @@ if(isset($_POST['submit'])){
     }else if($puesto['usuario_rol']==2){
       header('location:prueba3.html');
     }else if($puesto['usuario_rol']==3){
-      header('location:test3.html');
+    header('location:../../page/long_rec/major.php');
     }
   }else{
     $mensaje[] = 'Contraseña o Usuario incorrecto';
   }
   
-}
+};
 ?>
