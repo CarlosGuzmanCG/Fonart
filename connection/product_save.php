@@ -26,7 +26,7 @@ if($nombreProd==""){
                 VALUES('$codigoProd','$nombreProd','$descripcionProd',$precioProd,$stockProd,'$nombre_imagen',$categoriaProd)";
                 $result = mysqli_query($conn,$sql);
                 if($result){
-                    if(move_uploaded_file($_FILES['imagen']['tmp_name'], "/home/pablo/Documentos/GitHub/Fonart/assets/img/".$nombre_imagen)){
+                    if(move_uploaded_file($_FILES['imagen']['tmp_name'], "/home/pablo/Documentos/GitHub/Fonart/assets/img".$nombre_imagen)){
                         $response -> state = true;
                     }else{
                         $response -> state=false;
