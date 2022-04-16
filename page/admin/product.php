@@ -2,14 +2,12 @@
 <html lang="en">
 <?php include ('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
 ?>
-
 <head>
     <title>Administrador | Productos </title>
     <link rel="stylesheet" type="text/css" href="/css/adm_sel.css">
     <link rel="stylesheet" type="text/css" href="/assets/font-awesome-4.7.0/css/font-awesome.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -58,31 +56,31 @@
             <h3>Editar datos del producto</h3>
             <div class="div-flex">
                 <label>Codigo producto</label>
-                <input type="number" id="codigoProd">
+                <input type="number" id="codigoProd-e">
             </div>
             <div class="div-flex">
                 <label>Nombre</label>
-                <input type="text" id="nombreProd">
+                <input type="text" id="nombreProd-e">
             </div>
             <div class="div-flex">
                 <label>Descripcion</label>
-                <input type="text" id="descripcionProd">
+                <input type="text" id="descripcionProd-e">
             </div>
             <div class="div-flex">
                 <label>Pecio</label>
-                <input type="number" id="precioProd">
+                <input type="number" id="precioProd-e">
             </div>
             <div class="div-flex">
                 <label>Stock</label>
-                <input type="number" id="stockProd">
+                <input type="number" id="stockProd-e">
             </div>
             <div class="div-flex">
                 <label>Categoria</label>
-                <input type="number" id="categoriaProd">
+                <input type="number" id="categoriaProd-e">
             </div>
 
             <div class="div-flex">
-                <input type="file" id="imagen">
+                <input type="file" id="imagen-e">
             </div>
 
             <button onclick="update_producto()">Guardar</button>
@@ -141,7 +139,7 @@ echo
 <td>'.$row['datacreate'].'</td>
 <td class="td-option">
 <div class="div-flex div-td-button">
-<button><i class="fa fa-pencil" aria-hidden="true"></i></button>
+<button onclick="edit_product('.$row['id_prod'].')"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 <button onclick="delete_product('.$row['id_prod'].')"><i class="fa fa-trash" aria-hidden="true"></i></button>
 </div>
 </td>
@@ -189,25 +187,51 @@ $result->free();
             request.send(fd);
 
         }
-    
+        
         function edit_product(codpro){
 			let fd=new FormData();
 			fd.append('codpro',codpro);
 			let request=new XMLHttpRequest();
-			request.open('POST','api/get_product.php',true);
+			request.open('POST','/connection/get_product.php',true);
 			request.onload=function(){
 				if (request.readyState==4 && request.status==200) {
 					let response=JSON.parse(request.responseText);
 					console.log(response);
-					document.getElementById("codigo-e").value=codpro;
-					document.getElementById("nombre-e").value=response.product.nompro;
-					document.getElementById("descripcion-e").value=response.product.despro;
-					document.getElementById("precio-e").value=response.product.prepro;
-					document.getElementById("estado-e").value=response.product.estado;
-					document.getElementById("rutimapro").src="../sistema-ecommerce/assets/products/"+response.product.rutimapro;
-					document.getElementById("rutimapro-aux").value=response.product.rutimapro;
+					document.getElementById("codigoProd-e").value=codpro;
+					document.getElementById("nombreProd-e").value=response.product.nombro;
+					document.getElementById("descripcionProd-e").value=response.product.despro;
+                    document.getElementById("precioProd-e").value=response.product.precio;
+					document.getElementById("stockProd-e").value=response.product.stockpro;
+                    document.getElementById("imagen-e").value=response.product.imagen;
+					document.getElementById("categoriaProd-e").value=response.product.categoria;
+					
 					show_modal('modal-producto-edit');
 					//imagen-e
+				}
+			}
+			request.send(fd);
+		}
+        function update_producto(){
+			let fd=new FormData();
+			fd.append('codigoProd',document.getElementById('codigoProd-e').value);
+			fd.append('nombreProd',document.getElementById('nombreProd-e').value);
+			fd.append('descripcionProd',document.getElementById('descripcionProd-e').value);
+			fd.append('stockProd',document.getElementById('stockProd-e').value);
+			fd.append('precioProd',document.getElementById('precioProd-e').value);
+			fd.append('categoriaProd',document.getElementById('categoriaProd-e').value);
+            fd.append('imagen',document.getElementById('imagen-e').files[0]);			
+			let request=new XMLHttpRequest();
+			request.open('POST','/connection/product_update.php',true);
+			request.onload=function(){
+				if (request.readyState==4 && request.status==200) {
+					let response=JSON.parse(request.responseText);
+					console.log(response);
+					if (response.state) {
+						alert("Producto actualizado");
+						window.location.reload();
+					}else{
+						alert(response.detail);
+					}
 				}
 			}
 			request.send(fd);
