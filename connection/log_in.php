@@ -12,8 +12,8 @@ if(isset($_POST['submit'])){
   if(mysqli_num_rows($select) > 0){
     $row = mysqli_fetch_array($select);
     $puesto['usuario_rol'] = $row['rol_id'];
-    $_SESSION['usua_id'] = $row['id_usua']; 
 
+    $_SESSION['usua_id'] = $row['id_usua']; 
     /*
     while($row = mysqli_fetch_array($select)){
       $mensaje[] = 'el correo es ' . $row['email_usua'];
