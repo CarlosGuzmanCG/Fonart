@@ -18,18 +18,11 @@ if(!isset($user_id)){
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
   <link rel="stylesheet" href="../../css/compts.css">
-
-<style>
-.mySlides {display:none}
-.w3-left, .w3-right, .w3-badge {cursor:pointer}
-.w3-badge {height:13px;width:13px;padding:0}
-</style>
-  
 
   <title>Bienvenido a Fonart</title>
 
@@ -41,21 +34,36 @@ include 'head.php';
 ?>
 
 
-<!--Prueba -->
-  <div class="w3-content w3-display-container" style="max-width:800px">
-  <img class="mySlides" src="../../assets/photo-slider/img_nature_wide.jpg" style="width:100%">
-  <img class="mySlides" src="../../assets/photo-slider/img_snow_wide.jpg" style="width:100%">
-  <img class="mySlides" src="../../assets/photo-slider/img_mountains_wide.jpg" style="width:100%">
-  <div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
-    <div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
-    <div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../../assets/photo-slider/imagen1.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../../assets/photo-slider/imagen2.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../../assets/photo-slider/imagen3.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
-<br>
+
+<br><br><br>
 
 <div class="products">
   <div class="box-container">
@@ -70,7 +78,7 @@ include 'head.php';
         <div class="name-prod"><?php echo $fetch_products['nombre_prod'];?></div>
         <div class="desc_prod"><?php echo $fetch_products['descripcion_prod'];?></div>
         <div class="price-prod"> <?php echo "$" . $fetch_products['precio_prod'];?></div>
-        <input type="number" min="1" name="produc_quantify" value="1">
+        <input class="prod_qft" type="number" min="1" name="produc_quantify" value="1">
         <input type="hidden" name="produ_image" value="<?php echo $fetch_products['tipo_img_prod']; ?>">
         <input type="hidden" name="produ_name" value="<?php echo $fetch_products['nombre_prod']; ?>">
         <input type="hidden" name="produ_description" value="<?php echo $fetch_products['descripcion_prod']; ?>">
@@ -86,10 +94,10 @@ include 'head.php';
 
 
 
-<!--Fin de Prueba -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="../../js/script.js"></script>
 <script src="../../js/phot-sli.js"></script>
-<br>
+<br><br><br>
 <?php
   include 'footer.php';
 ?>

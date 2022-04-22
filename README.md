@@ -17,20 +17,20 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
 - [x] Creación de la interfaz de inicio
 - [x] Creación de la interfaz de usuario
 - [] Creación del carrito de compras
-- [] Creación de quejas, [nombre, correo y detalle]
+- [x] Creación de quejas [nombre, correo y detalle]
 
 ## Lista de actividades para el back-end
 
 - [x] Registro
 - [x] Inicio de sesión por rol
-- [] obtener productos de la DB
+- [x] obtener productos de la DB
 - Administrador:
   - - [] Eliminar productos
   - - [] Registrar administradores
   - - [] Registrar vendedores
   - - [] Ver productos
 - Cliente
-  - - [] Ver productos
+  - - [x] Ver productos
+  - - [] Actualizar información
   - - [] Agregar productos al carrito de compras
   - - [] Eliminar productos del carrito de compras
-  - - []
