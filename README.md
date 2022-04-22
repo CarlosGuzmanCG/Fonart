@@ -14,8 +14,8 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
 - [] Creación de la interfaz del administrador
 - [] Creación de la interfaz del vendedor
 - [] Creación de la interfaz para agregar productos
-- [] Creación de la interfaz de inicio
-- [] Creación de la interfaz de usuario
+- [x] Creación de la interfaz de inicio
+- [x] Creación de la interfaz de usuario
 - [] Creación del carrito de compras
 - [] Creación de quejas, [nombre, correo y detalle]
 
@@ -29,3 +29,8 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
   - - [] Registrar administradores
   - - [] Registrar vendedores
   - - [] Ver productos
+- Cliente
+  - - [] Ver productos
+  - - [] Agregar productos al carrito de compras
+  - - [] Eliminar productos del carrito de compras
+  - - []

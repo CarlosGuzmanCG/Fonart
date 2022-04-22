@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
 
 :root {
-  --green: #2c0b78;
+  --green: #0a0613;
   --orange: #f39c12;
   --red: #e74c3c;
   --light-color: #666;
@@ -64,6 +64,7 @@ section {
 }
 
 .btn,
+.btn-prod,
 .delete-btn,
 .option-btn {
   display: block;
@@ -88,23 +89,20 @@ section {
   flex: 1;
 }
 
-.btn {
+.btn,
+.btn-prod,
+.delete-btn,
+.option-btn
+ {
   background-color: var(--red);
 }
 
-
-.delete-btn {
-  background-color: var(--red);
-}
-
-.option-btn {
-  background-color: var(--red);
-}
 
 .btn:hover,
+.btn-prod:hover,
 .delete-btn:hover,
 .option-btn:hover {
-  background-color: var(--black);
+  background-color: #000000;
 }
 
 .flex-btn {
@@ -365,7 +363,7 @@ section {
   line-height: 1.5;
   border-top: var(--border);
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.7rem;
   color: rgb(255, 255, 255);
 }
 
@@ -373,9 +371,48 @@ section {
   color: var(--light-bg);
 }
 
+.products .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
 
+.products .box-container .box-prod{
+  text-align: center;
+  border-radius:5px;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  position: relative;
+  padding: 19px;
+  background-color: rgb(255, 255, 255);
+  width: 350px;
+}
 
+.products .box-container .box-prod{
+  background: #e4e2e7;
+}
 
+.products .box-container .box-prod img{
+  height: 275px;
+  border: black 5px solid;
+  padding: 5px;
+}
+
+.products .box-container .box-prod .name-prod{
+  font-size: 21px;
+  background-color: #666;
+  color: #fff;
+  padding: 2.5px 0;
+}
+
+.products .box-container .box-prod .desc_prod,
+.products .box-container .box-prod .price-prod{
+  font-size: 21px;
+  padding: 5px 0;
+  text-align: justify;
+  border: black 2.1px solid;
+}
 
 
 

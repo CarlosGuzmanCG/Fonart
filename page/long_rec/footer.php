@@ -15,10 +15,10 @@
 
     <div class="box-icons">
       <h3>Redes sociales</h3>
-      <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
-      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-      <a href="#"><i class="fab fa-youtube"></i> Youtube</a>
+      <a href="https://www.facebook.com/artesanias.fonart" target="_black"><i class="fab fa-facebook-f"></i> Facebook</a>
+      <a href="https://www.instagram.com/Fonart_mx/" target="_black"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://twitter.com/Fonart_mx" target="_black"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="https://www.youtube.com/channel/UC7QVdd24Z--LXGvlUvOPQ9w" target="_black"><i class="fab fa-youtube"></i> Youtube</a>
     </div>
 
   </section>
