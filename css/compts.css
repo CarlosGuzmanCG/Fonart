@@ -77,6 +77,18 @@ section {
   text-transform: capitalize;
   cursor: pointer;
   text-align: center;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.name_customer{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .flex-btn {
@@ -256,6 +268,7 @@ section {
   margin: 0 2.5rem;
   font-size: 2rem;
   color: var(--light-bg);
+  text-decoration: none;
 }
 
 .header .flex .navbar a:hover {
@@ -342,6 +355,7 @@ section {
   padding: 1.3rem 0;
   font-size: 1.8rem;
   color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
 .fotr .box-container .box-icons a i,
@@ -387,9 +401,6 @@ section {
   padding: 19px;
   background-color: rgb(255, 255, 255);
   width: 350px;
-}
-
-.products .box-container .box-prod{
   background: #e4e2e7;
 }
 
@@ -397,6 +408,10 @@ section {
   height: 275px;
   border: black 5px solid;
   padding: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .products .box-container .box-prod .name-prod{
@@ -415,7 +430,14 @@ section {
 }
 
 
-
+.products .box-container .box-prod .prod_qft{
+  margin: .9rem 0;
+  border-radius: .5rem;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.8rem;
+  color: #000000;
+  width: 100%;
+}
 
 @media (max-width:991px) {
   html {

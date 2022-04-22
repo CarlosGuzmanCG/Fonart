@@ -9,9 +9,9 @@ include '../../connection/mens.php';
       <a  href="https://www.gob.mx/fonart" target="_black">
         <img class="logo" src="../../assets/logofonart.png" alt="" ></a>
         <nav class="navbar">
-          <a class="nac" href="">Inicio</a>
-          <a class="#" href="">Productos</a>
-          <a class="#" href="">Orden</a>
+          <a class="nac" href="#">Inicio</a>
+          <a class="#" href="#">Productos</a>
+          <a class="#" href="#">Orden</a>
         </nav>
 
         <div class="icons">
@@ -29,7 +29,7 @@ include '../../connection/mens.php';
 
     ?>
 
-      <p><?= $fetch_user['nombre_usua'] . " " . $fetch_user['apellido_usua']; ?></p>
+      <p class="name_customer"><?= $fetch_user['nombre_usua'] . " " . $fetch_user['apellido_usua']; ?></p>
 
       
       <div class="flex-btn">
