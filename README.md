@@ -34,3 +34,5 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
   - - [] Actualizar información
   - - [] Agregar productos al carrito de compras
   - - [] Eliminar productos del carrito de compras
+  - - [x] Formulario
+  - - [] Método de pago
