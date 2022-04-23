@@ -64,6 +64,7 @@ section {
 }
 
 .btn,
+.btn-form,
 .btn-prod,
 .delete-btn,
 .option-btn {
@@ -104,7 +105,8 @@ section {
 .btn,
 .btn-prod,
 .delete-btn,
-.option-btn
+.option-btn,
+.btn-form
  {
   background-color: var(--red);
 }
@@ -113,6 +115,7 @@ section {
 .btn:hover,
 .btn-prod:hover,
 .delete-btn:hover,
+.btn-form:hover,
 .option-btn:hover {
   background-color: #000000;
 }
@@ -438,6 +441,59 @@ section {
   color: #000000;
   width: 100%;
 }
+
+.form-doubts {
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  --red: #4e2f2b;
+  --orange: #746957;
+  --black: rgb(56, 33, 33);
+  --white: rgb(243, 243, 243);
+  --light-bg: rgba(0, 0, 0, 0.24);
+  --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  --border: 2px solid var(--black);
+}
+
+.form-doubts form {
+  width: 500px;
+  border-radius: 5px;
+  border: var(--border);
+  padding: 50px;
+  text-align: center;
+  background-color: var(--white);
+}
+
+.form-doubts form h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  text-transform: none;
+  color: var(--black);
+}
+
+.form-doubts form .btn-form {
+  width: 100%;
+  border-radius: 5px;
+  border: var(--border);
+  padding: 12px 14px;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.form-doubts form .box-form {
+  width: 100%;
+  border-radius: 5px;
+  border: var(--border);
+  padding: 12px 14px;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+
+
+
 
 @media (max-width:991px) {
   html {
