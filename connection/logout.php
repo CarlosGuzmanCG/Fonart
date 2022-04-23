@@ -5,6 +5,6 @@ session_start();
 session_unset();
 session_destroy();
 
-header('location:../../page/long_rec/login.php');
+header('location:../index.php');
 
 ?>
