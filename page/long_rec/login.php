@@ -26,7 +26,7 @@ include '../../connection/mens.php';
         <img src="../../assets/logofonart.png" alt="" ></a>
     </div>
     <nav class="nav-l">
-      <a href="" class="nav-link">Inicio</a>
+      <a href="../../index" class="nav-link">Inicio</a>
     </nav>
   </header>
 

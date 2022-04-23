@@ -25,7 +25,7 @@ include '../../connection/mens.php';
         <img src="../../assets/logofonart.png" alt=""></a>
     </div>
     <nav class="nav-l">
-      <a href="" class="nav-link">Inicio</a>
+      <a href="../../index.php" class="nav-link">Inicio</a>
       <a href="https://www.gob.mx/fonart" class="nav-link" target="_black">Sobre nosotros</a>
     </nav>
   </header>
