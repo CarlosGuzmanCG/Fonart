@@ -10,8 +10,8 @@ include '../../connection/mens.php';
         <img class="logo" src="../../assets/logofonart.png" alt="" ></a>
         <nav class="navbar">
           <a class="nac" href="major.php">Inicio</a>
-          <a class="#" href="#">Productos</a>
-          <a class="#" href="#">Orden</a>
+          <a class="#" href="home-produc.php">Para el hogar</a>
+          <a class="#" href="clothing-produc.php">Para vestir</a>
         </nav>
 
         <div class="icons">
@@ -29,7 +29,7 @@ include '../../connection/mens.php';
 
     ?>
 
-      <p class="name_custom"><?= $fetch_user['nombre_usua'] . " " . $fetch_user['apellido_usua']; ?></p>
+      <p class="name_custom"><?php echo $fetch_user['nombre_usua'] . " " . $fetch_user['apellido_usua']; ?></p>
 
       
       <div class="flex-btn">
