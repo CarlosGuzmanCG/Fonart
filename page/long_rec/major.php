@@ -1,15 +1,5 @@
 <?php
-
-include '../../connection/conf.php';
-
-session_start();
-
-$user_id = $_SESSION['usua_id'];
-
-//echo "<script>console.log('id_us: ' ".$user_id.");</script>";
-if(!isset($user_id)){
-  header('location:login.php');
-};
+include '../../connection/access-major.php';
 ?>
 
 <!DOCTYPE html>

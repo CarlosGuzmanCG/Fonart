@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
     $row = mysqli_fetch_array($select);
     $puesto['usuario_rol'] = $row['rol_id'];
 
-    $_SESSION['usua_id'] = $row['id_usua']; 
+    $_SESSION['usua_id'] = $row['id_usua'];
     /*
     while($row = mysqli_fetch_array($select)){
       $mensaje[] = 'el correo es ' . $row['email_usua'];
@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
     if($puesto['usuario_rol']==1){
       header('location:prueba3.html');
     }else if($puesto['usuario_rol']==2){
-      header('location:prueba3.html');
+      header('location:../../page/long_rec/test.php');
     }else if($puesto['usuario_rol']==3){
     header('location:../../page/long_rec/major.php');
     }

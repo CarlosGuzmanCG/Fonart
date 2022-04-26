@@ -1,14 +1,7 @@
 <?php
 
-include '../../connection/conf.php';
+include '../../connection/access-major.php';
 
-session_start();
-
-$user_id = $_SESSION['usua_id'];
-
-if(!isset($user_id)){
-  header('location:login.php');
-};
 ?>
 
 <!DOCTYPE html>
