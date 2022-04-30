@@ -1,3 +1,4 @@
+
 <?php
 	include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
 	$response=new stdClass();
@@ -8,7 +9,7 @@
 		$result=mysqli_query($conn,$sql);
 		if ($result) {
 			$response->state=true;
-			unlink("./home/pablo/Documentos/GitHub/Fonart/assets/img/".$rutimapro);
+			unlink("./home/pablo/Documentos/GitHub/fonart/assets/img/".$rutimapro);
 		}else{
 			$response->state=false;
 			$response->detail="No se puede eliminar el producto";

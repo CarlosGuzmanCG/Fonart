@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
+include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 ?>
 
 <head>
@@ -25,11 +25,11 @@ include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
                     aria-hidden="true"></i></button>
             <h3>Aniadir producto</h3>
             <div class="div-flex">
-                <label>Codigo producto</label>
-                <input type="number" id="codigoProd">
+                <label>Nombre de usuario</label>
+                <input type="text" id="nombreUs">
             </div>
             <div class="div-flex">
-                <label>Nombre</label>
+                <label>Apellidos</label>
                 <input type="text" id="nombreProd">
             </div>
             <div class="div-flex">
@@ -137,35 +137,52 @@ include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Codigo producto</th>
                         <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Calle</th>
+                        <th>Colonia</th>
+                        <th>Estado</th>
+                        <th>Ciudad</th>
+                        <th>Codigo Postal</th>
+                        <th>Numero Calle</th>
+                        <th>Numero Tel</th>
+                        <th>Numero Tel 2 </th>
                         <th>Descripcion</th>
-                        <th>Precio</th>
-                        <th>Stock</th>
-                        <th>Imagen</th>
-                        <th>Categoria</th>
-                        <th>Dato</th>
+                        <th>toke</th>
+                        <th>rol</th>
+                        <th>dato</th>
+
 
                         <th class="td-option">Opciones</th>
                     </tr>
                 </thead>
 
                 <?php
-$query = "SELECT * FROM producto";
+$query = "SELECT * FROM usuario";
 if ($result = $conn->query($query)) {
 while ($row = $result->fetch_assoc()) {
 echo
 '
 <tr>
-<td>'.$row['id_prod'].'</td>
-<td>'.$row['codigo_prod'].'</td>
-<td>'.$row['nombre_prod'].'</td>
-<td>'.$row['descripcion_prod'].'</td>
-<td>'.$row['precio_prod'].'</td>
-<td>'.$row['stock_prod'].'</td>
-<td>'.$row['nombre_img_prod'].'</td>
-<td>'.$row['categoria_id'].'</td>
-<td>'.$row['datacreate'].'</td>
+<td>'.$row['id_usua'].'</td>
+<td>'.$row['nombre_usua'].'</td>
+<td>'.$row['apellido_usua'].'</td>
+<td>'.$row['email_usua'].'</td>
+<td>'.$row['password_usua'].'</td>
+<td>'.$row['calle_usua'].'</td>
+<td>'.$row['colonia_usua'].'</td>
+<td>'.$row['estado_usua'].'</td>
+<td>'.$row['ciudad_usua'].'</td>
+<td>'.$row['codPos_usua'].'</td>
+<td>'.$row['numeroCalle_usua'].'</td>
+<td>'.$row['numeroTel_usua'].'</td>
+<td>'.$row['numeroTel2_usua'].'</td>
+<td>'.$row['descripcion_usua'].'</td>
+<td>'.$row['toke'].'</td>
+<td>'.$row['rol_id'].'</td>
+<td>'.$row['datecreated_usua'].'</td>
 <td class="td-option">
 <div class="div-flex div-td-button">
     <button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar">
