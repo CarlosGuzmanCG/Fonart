@@ -7,7 +7,9 @@ include 'connection/conf.php';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <link rel="shortcut icon" type="image/x-icon" href="assets/ico-fonart/favicon.ico?1643016642">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   
   <link rel="stylesheet" href="../../css/compts.css">
@@ -18,7 +20,7 @@ include 'connection/conf.php';
 <body>
   
 <?php
-include 'head-index.php';
+include 'head_index.php';
 ?>
 
 <br><br><br>
@@ -26,7 +28,7 @@ include 'head-index.php';
 <div class="products">
   <div class="box-container">
     <?php
-    $select_products= mysqli_query($conn,"SELECT * FROM `producto` WHERE `categoria_id`= '2'") or die ("busqueda de productos fallada");
+    $select_products= mysqli_query($conn,"SELECT * FROM `producto` WHERE `categoria_id`= '1'") or die ("busqueda de productos fallada");
     if (mysqli_num_rows($select_products)>0) {
       $total = mysqli_num_rows($select_products);
       while ($fetch_products = mysqli_fetch_assoc($select_products)) {
@@ -41,6 +43,7 @@ include 'head-index.php';
         <input type="hidden" name="produ_name" value="<?php echo $fetch_products['nombre_prod']; ?>">
         <input type="hidden" name="produ_description" value="<?php echo $fetch_products['descripcion_prod']; ?>">
         <input type="hidden" name="produ_price" value="<?php echo $fetch_products['precio_prod']; ?>">
+
         <a href="page/long_rec/record.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
         <a href="page/long_rec/login.php" style="text-decoration: none;"><input type="button" value="Agregar al carrito" name="addd_cart" class="btn-prod"></a>
         </form>
@@ -57,7 +60,7 @@ include 'head-index.php';
 
 <br><br><br>
 <?php
-  include 'footer-index.php';
+  include 'footer_index.php';
 ?>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?php
-include '../../connection/access-major.php';
+include '../../connection/access_major.php';
 ?>
 
 <!DOCTYPE html>

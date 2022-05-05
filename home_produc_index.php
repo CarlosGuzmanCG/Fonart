@@ -1,28 +1,25 @@
 <?php
-
-include '../../connection/access-major.php';
-
+include 'connection/conf.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/x-icon" href="../../assets/ico-fonart/favicon.ico?1643016642">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/ico-fonart/favicon.ico?1643016642">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  
   <link rel="stylesheet" href="../../css/compts.css">
+
   <title>Bienvenido a Fonart</title>
 
 </head>
 <body>
   
 <?php
-include 'head.php';
+include 'head_index.php';
 ?>
-
-
 
 <br><br><br>
 
@@ -44,7 +41,8 @@ include 'head.php';
         <input type="hidden" name="produ_name" value="<?php echo $fetch_products['nombre_prod']; ?>">
         <input type="hidden" name="produ_description" value="<?php echo $fetch_products['descripcion_prod']; ?>">
         <input type="hidden" name="produ_price" value="<?php echo $fetch_products['precio_prod']; ?>">
-        <input type="submit" value="Agregar al carrito" name="addd_cart" class="btn-prod">
+        <a href="page/long_rec/record.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
+        <a href="page/long_rec/login.php" style="text-decoration: none;"><input type="button" value="Agregar al carrito" name="addd_cart" class="btn-prod"></a>
         </form>
       <?php
       };
@@ -55,11 +53,11 @@ include 'head.php';
 
 
 
-<script src="../../js/script.js"></script>
+<script src="js/script.js"></script>
 
 <br><br><br>
 <?php
-  include 'footer.php';
+  include 'footer_index.php';
 ?>
 </body>
 </html>

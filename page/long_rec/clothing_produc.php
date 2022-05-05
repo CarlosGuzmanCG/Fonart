@@ -1,6 +1,6 @@
 <?php
 
-include '../../connection/access-major.php';
+include '../../connection/access_major.php';
 //echo "<script>console.log('id_us: ' ".$user_id.");</script>";
 ?>
 

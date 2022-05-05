@@ -18,7 +18,7 @@
 <body>
   
 <?php
-include 'head-index.php';
+include 'head_index.php';
 ?>
 
 
@@ -89,7 +89,7 @@ include 'head-index.php';
 <script src="js/phot-sli.js"></script>
 <br><br><br>
 <?php
-  include 'footer-index.php';
+  include 'footer_index.php';
 ?>
 </body>
 </html>

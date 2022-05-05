@@ -10,8 +10,8 @@ include '../../connection/mens.php';
         <img class="logo" src="../../assets/logofonart.png" alt="" ></a>
         <nav class="navbar">
           <a class="nac" href="major.php">Inicio</a>
-          <a class="#" href="home-produc.php">Para el hogar</a>
-          <a class="#" href="clothing-produc.php">Para vestir</a>
+          <a class="#" href="home_produc.php">Para el hogar</a>
+          <a class="#" href="clothing_produc.php">Para vestir</a>
         </nav>
 
         <div class="icons">

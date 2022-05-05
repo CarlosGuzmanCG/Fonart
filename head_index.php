@@ -9,8 +9,8 @@ include 'connection/conf.php';
         <img class="logo" src="assets/logofonart.png" alt="" ></a>
         <nav class="navbar">
           <a class="nac" href="index.php">Inicio</a>
-          <a class="#" href="home-produc-index.php">Para el hogar</a>
-          <a class="#" href="clothing-produc-index.php">Para vestir</a>
+          <a class="#" href="home_produc_index.php">Para el hogar</a>
+          <a class="#" href="clothing_produc_index.php">Para vestir</a>
         </nav>
 
         <div class="icons">
