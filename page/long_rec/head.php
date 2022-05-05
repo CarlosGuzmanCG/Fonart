@@ -37,7 +37,7 @@ include '../../connection/mens.php';
 
       
       <div class="flex-btn">
-        <a href="user_prof.php" class="option-btn">Actualizar perfil</a>
+        <a href="update_profile.php" class="option-btn">Actualizar perfil</a>
         <a href="../../connection/logout.php" class="option-btn">cerrar sesión</a>
       </div>
         </div>

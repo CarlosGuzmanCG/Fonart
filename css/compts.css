@@ -395,6 +395,15 @@ section {
   justify-content: center;
 }
 
+.tilte{
+  text-align: center;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  color: var(--black);
+  font-size: 1.5rem;
+
+}
+
 .products .box-container .box-prod{
   text-align: center;
   border-radius:5px;
@@ -491,6 +500,48 @@ section {
   margin: 10px 0;
 }
 
+.upd-prof form .flex-b{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.upd-prof form{
+  max-width: 70rem;
+  margin: 0 auto;
+  background-color: #e4e2e7;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  border-radius: .5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.upd-prof form .inp-box{
+  text-align: left;
+  
+}
+
+.upd-prof form .inp-box span{
+  display: block;
+  padding-top: 1rem;
+  font-size: 1.8rem;
+  color: var(--green);
+}
+
+.upd-prof form .box-update{
+  width: 100%;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.8rem;
+  color: var(--black);
+  border: var(--border);
+  border-radius: .5rem;
+  margin: 1rem 0;
+  background-color: var(--light-bg);
+}
+
 
 
 
@@ -534,6 +585,15 @@ section {
     margin: 2rem;
   }
 
+  .upd-prof form .flex-b{
+    flex-flow: column;
+    gap: ;
+  }
+
+  .upd-prof form .flex .inp-box{
+    width: 100%;
+  }
+
 }
 
 @media (max-width:450px) {
@@ -547,7 +607,7 @@ section {
   }
 
   .title {
-    font-size: 3rem;
+    font-size: 1rem;
   }
 
 }
