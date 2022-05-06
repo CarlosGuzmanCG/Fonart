@@ -404,6 +404,7 @@ section {
 
 }
 
+
 .products .box-container .box-prod{
   text-align: center;
   border-radius:5px;
@@ -542,6 +543,30 @@ section {
   background-color: var(--light-bg);
 }
 
+.btn-pag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.btn-pag1,
+.btn-pag2 {
+  margin: 5%;
+  border-radius: 20px;
+  border: 1px solid rgb(255, 128, 0);
+  padding: 1rem;
+  color: black;
+  text-decoration: none;
+  font-size: 2rem;
+  background: rgba(170, 168, 168, 0.598);
+}
+
+.btn-pag1:hover,
+.btn-pag2:hover {
+  background: rgb(58, 58, 132);
+  color: white;
+}
 
 
 
@@ -609,5 +634,16 @@ section {
   .title {
     font-size: 1rem;
   }
+
+    .btn-pag1,
+    .btn-pag2 {
+      margin: 2.5%;
+      border-radius: 10px;
+      border: 1px solid rgb(255, 30, 0);
+      padding: .5rem;
+      color: black;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
 
 }

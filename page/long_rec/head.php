@@ -16,10 +16,17 @@ include '../../connection/mens.php';
 
         <div class="icons">
           <div id="menu-btn" class="fas fa-bars"></div>
-          <div id="user-btn" class="fas fa-user"></div>
           <?php
-          
+
+          $user_cart_count = $_SESSION['usua_id'];
+            $select_products_cart= mysqli_query($conn,"SELECT * FROM `detalle_temp` INNER JOIN `producto` ON detalle_temp.producto_id= producto.id_prod WHERE detalle_temp.usua_id_temp='$user_cart_count' AND detalle_temp.status_temp=0");
+            $total_prod_rows = mysqli_num_rows($select_products_cart);
           ?>
+
+          <a href="cart.php"><i class="fas fa-shopping-cart"></i><span><?php if($total_prod_rows<=99){echo $total_prod_rows;}else{echo "99+";} ?></span></a>
+          <div id="user-btn" class="fas fa-user"></div>
+          
+
         </div>
 
         <div class="profile">
