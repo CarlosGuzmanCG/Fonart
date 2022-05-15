@@ -31,8 +31,8 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
   - - [] Ver productos
 - Cliente
   - - [x] Ver productos
-  - - [] Actualizar información
-  - - [] Agregar productos al carrito de compras
-  - - [] Eliminar productos del carrito de compras
+  - - [x] Actualizar información
+  - - [x] Agregar productos al carrito de compras
+  - - [x] Eliminar productos del carrito de compras
   - - [x] Formulario
   - - [] Método de pago
