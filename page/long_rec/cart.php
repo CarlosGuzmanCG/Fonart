@@ -6,7 +6,7 @@ if(isset($_POST['delete_produc_cart'])){
   $id_usu_dele_cart=$_SESSION['usua_id'];
 
   $insert_cart = mysqli_query($conn, "DELETE FROM `detalle_temp` WHERE id_temp_carrito='$id_prod' and usua_id_temp='$id_usu_dele_cart';") or die('consulta fallada 1');
-  $message[] = 'Producto agregado!';
+  $mensaje[] = 'Producto eliminado!';
 }
 
 ?>
@@ -74,7 +74,7 @@ include 'head.php';
           </div>
           <div class="btn-pag2">
             <i class="fa-brands fa-paypal"><a href=""> Pagar con paypal</a></i>
-          </div>
+        </div>
           
 <?php
       }

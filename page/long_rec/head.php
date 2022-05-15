@@ -2,7 +2,6 @@
 include '../../connection/mens.php';
 ?>
 
-
 <header class="header">
   <div>
   <div class="flex">
@@ -18,15 +17,14 @@ include '../../connection/mens.php';
           <div id="menu-btn" class="fas fa-bars"></div>
           <?php
 
-          $user_cart_count = $_SESSION['usua_id'];
+            $user_cart_count = $_SESSION['usua_id'];
             $select_products_cart= mysqli_query($conn,"SELECT * FROM `detalle_temp` INNER JOIN `producto` ON detalle_temp.producto_id= producto.id_prod WHERE detalle_temp.usua_id_temp='$user_cart_count' AND detalle_temp.status_temp=0");
             $total_prod_rows = mysqli_num_rows($select_products_cart);
           ?>
 
-          <a href="cart.php"><i class="fas fa-shopping-cart"></i><span><?php if($total_prod_rows<=99){echo $total_prod_rows;}else{echo "99+";} ?></span></a>
+          <a href="cart.php"><i class="fas fa-shopping-cart"></i><span><?php if($total_prod_rows==0){}else if($total_prod_rows<=99){echo $total_prod_rows;}else{echo "99+";} ?></span></a>
           <div id="user-btn" class="fas fa-user"></div>
           
-
         </div>
 
         <div class="profile">
@@ -44,7 +42,7 @@ include '../../connection/mens.php';
 
       
       <div class="flex-btn">
-        <a href="update_profile.php" class="option-btn">Actualizar perfil</a>
+        <a href="update_profile.php" class="option-btn">Actualizar datos</a>
         <a href="../../connection/logout.php" class="option-btn">cerrar sesión</a>
       </div>
         </div>

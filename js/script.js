@@ -17,3 +17,8 @@ window.onscroll = () =>{
   profile.classList.remove('active');
   navbar.classList.remove('active');
 }
+
+function myFunction(smallImg) {
+    var fullImg = document.getElementById("imageBox");
+    fullImg.src = smallImg.src;
+  }

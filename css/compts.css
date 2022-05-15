@@ -562,10 +562,67 @@ section {
   background: rgba(170, 168, 168, 0.598);
 }
 
+.btn-see-prod{
+    margin: 2.5%;
+    border-radius: 15px;
+    border: 1px solid rgb(255, 128, 0);
+    padding: 1rem;
+    color: black;
+    text-decoration: none;
+    font-size: 2rem;
+    background: rgba(255, 0, 0, 0.598);
+    color: #fff;
+}
+
+.btn-see-prod:hover{
+  background: rgb(0, 0, 0);
+    color: white;
+}
+
 .btn-pag1:hover,
 .btn-pag2:hover {
   background: rgb(58, 58, 132);
   color: white;
+}
+
+.product-small-img-prod img {
+          width: 100%;
+          border: 1px solid rgba(0, 0, 0, .2);
+          padding: 8px;
+          margin: 10px 10px 15px;
+          cursor: pointer;
+}
+    
+.product-small-img-prod {
+          width: 8%;
+          display: flex;
+}
+    
+.img-container-prod img {
+          height: 460px;
+}
+    
+.img-container-prod {
+          padding: 10px;
+          width: 45%;
+}
+
+#main-t{
+  width: 640px;
+  margin: 2% auto;
+  background-color: #4e2f2b;
+}
+
+#lateral1 {
+  width: 200px;
+  float: left;
+  background:#746957 ;
+}
+
+#lateral2 {
+  width: 140px;
+  float: left;
+  background: #746957;
 }
 
 
