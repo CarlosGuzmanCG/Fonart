@@ -739,6 +739,46 @@ section {
   font-size: 15px;
 }
 
+.modal{
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.modal-container{
+  background: #fff;
+  min-width: 400px;
+  max-width: 90%;
+  min-height: 300px;
+  max-height: 90%;
+  padding: 20px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.close-modal{
+  background: red;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  cursor: pointer;
+}
+
 
 #main-t{
   width: 640px;
@@ -758,6 +798,46 @@ section {
   background: #746957;
 }
 
+.method-pag-h2{
+  text-align: center;
+  font-size: 25px;
+}
+
+.steps-to-follow {
+  padding: 5px;
+  text-align: center;
+  font-size: 13.5px;
+  font-weight: bold;
+}
+
+.instruction-pag{
+  padding: 1.2rem 1.4rem;
+  background: red;
+  color: white;
+  font-size: 15px;
+  margin: 10px;
+  text-overflow: "-";
+}
+
+.btn-cart-prod-sale{
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.btn-prod-close,
+.btn-prod-sale{
+  margin: 4px;
+  font-size: 15px;
+  padding: 1.3rem 3rem;
+  border-radius: 2rem;
+  background-color: var(--red);
+  color: white;
+}
+
+.btn-prod-close:hover,
+.btn-prod-sale:hover{
+  background-color: #000000;
+}
 
 
 

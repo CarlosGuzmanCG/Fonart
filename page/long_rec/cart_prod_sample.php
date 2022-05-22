@@ -130,12 +130,6 @@ include 'head.php';
 
   </div>
 
-  <script type="text/javascript">
-    function myFunction(smallImg) {
-      var fullImg = document.getElementById("imageBox");
-      fullImg.src = smallImg.src;
-    }
-  </script>
 
   <script src="../../js/script.js"></script>
 <br><br><br>

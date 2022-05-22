@@ -7,7 +7,38 @@ if(isset($_POST['delete_produc_cart'])){
 
   $insert_cart = mysqli_query($conn, "DELETE FROM `detalle_temp` WHERE id_temp_carrito='$id_prod' and usua_id_temp='$id_usu_dele_cart';") or die('consulta fallada 1');
   $mensaje[] = 'Producto eliminado!';
-}
+};
+
+if(isset($_POST['regist-prod-sale'])){
+  $user_id_regist_prod = $_SESSION['usua_id'];
+  $amount = $_SESSION['amount_play'];
+
+  $on_products= mysqli_query($conn,"SELECT * FROM `detalle_temp` INNER JOIN `producto` ON detalle_temp.producto_id= producto.id_prod WHERE detalle_temp.usua_id_temp='$user_id_regist_prod' AND detalle_temp.status_temp=0") or die ("busqueda de productos fallada");
+
+
+      if (mysqli_num_rows($on_products)>0) {
+        $total_rows = mysqli_num_rows($on_products);
+
+        $show_orden_ft= mysqli_query($conn,"INSERT INTO `pedido` (usuario_id, monto_pedi,pago_pedi,status_pedi) values ('$user_id_regist_prod','$amount','Transferencia',0)") or die ("busqueda de productos fallada");
+
+        $search_products= mysqli_query($conn,"SELECT * FROM `pedido` WHERE `usuario_id`=$user_id_regist_prod") or die ("busqueda de productos fallada");
+
+        $row = mysqli_fetch_array($search_products);
+        $puesto = $row['id_pedi'];
+
+        while ($fetch_cart_off = mysqli_fetch_assoc($on_products)) {
+          
+          $price_prod=$fetch_cart_off['precio_prod'];
+          $amount_prod=$fetch_cart_off['cantidad_temp'];
+          $produc_off =$fetch_cart_off['id_prod'];
+
+          $produc_detail_product= mysqli_query($conn,"INSERT INTO `detalle_pedido` (pedido_id,producto_id,precio_detap,cantidad_detap) values ($puesto,$produc_off,$price_prod,$amount_prod)") or die ("busqueda de productos fallada");
+
+          $off_products = mysqli_query($conn, "UPDATE `detalle_temp` SET `status_temp`=1 WHERE `producto_id`=$produc_off and `usua_id_temp`=$user_id_regist_prod") or die ("Error en la consulta 16");
+
+        }
+      }
+};
 
 ?>
 
@@ -40,7 +71,7 @@ include 'head.php';
 
       
   $select_products= mysqli_query($conn,"SELECT * FROM `detalle_temp` INNER JOIN `producto` ON detalle_temp.producto_id= producto.id_prod WHERE detalle_temp.usua_id_temp='$user_id_cart' AND detalle_temp.status_temp=0") or die ("busqueda de productos fallada");
-
+  $_SESSION['amount_play']=0;
       if (mysqli_num_rows($select_products)>0) {
         $total_rows = mysqli_num_rows($select_products);
         $tot_pro=1;
@@ -57,11 +88,16 @@ include 'head.php';
         <?php 
         $precio_prod=$fetch_cart['precio_prod'];
         $cant_tem=$fetch_cart['cantidad_temp'];
-        $total=$precio_prod*$cant_tem; 
+        
+        $total=$precio_prod*$cant_tem;
+        
+        $_SESSION['amount_play']+=$total;
         ?>
 
         <div class="price-prod"> <?php echo "Total $".$total; ?></div>
+
         <input type="hidden" name="id_temp_cart" value="<?= $fetch_cart['id_temp_carrito']; ?>">
+
         <input type="submit" value="Eliminar producto" name="delete_produc_cart" class="btn-prod">
       </form>
       <?php
@@ -69,11 +105,36 @@ include 'head.php';
       if($total_rows==$tot_pro){
 ?>
         <div class="btn-pag">
+          <div class="price-prod"> <?php echo "Total $".$_SESSION['amount_play']; ?></div>
           <div class="btn-pag1">
-           <i class="fa-solid fa-money-bill-transfer"><a href=""> Pago con transferencia</a></i>
+            <button class="fa-solid fa-money-bill-transfer" onclick="openModal()">Pago con transferencia</button>
           </div>
+
           <div class="btn-pag2">
-            <i class="fa-brands fa-paypal"><a href=""> Pagar con paypal</a></i>
+            <button class="fa-brands fa-paypal">Pagar con paypal</button>
+        </div>
+
+        <div class="modal" id="modalAdd">
+          <div class="modal-container">
+            <div class="close-modal" onclick="closeModal()">X</div>
+            <h2 class="method-pag-h2">Método de pago por transferencia</h2>
+            <p class="instruction-pag">Realiza tu pago directamente en nuestra cuenta bancaria. Por favor, usa tu correo de esta cuenta como referencia de pago. Tu pedido no se procesará hasta que se haya recibido el importe en nuestra cuenta.</p>
+            <p class="steps-to-follow">Pasos a seguir</p>
+            <p class="steps-to-follow">1.- Actualizar datos</p>
+            <p class="steps-to-follow">2.- Clave interbancaria: 014600655021535891</p>
+            <p class="steps-to-follow">3.- Banco: Bancomer</p>
+            <p class="steps-to-follow">4.- Referencia: Ingresar su correo electronico</p>
+            <p class="steps-to-follow">5.- Nos comunicaremos con usted, gracias por elegirnos</p>
+            
+            <form action="" method="post" class="sale-cart">
+              <div class="btn-cart-prod-sale">
+
+                <input type="submit" class="btn-prod-sale" name="regist-prod-sale" value="Aceptar">
+                <button class="btn-prod-close" onclick="closeModal()">Cancelar</button>
+              </div>
+            </form>
+            
+          </div>
         </div>
           
 <?php
@@ -94,8 +155,8 @@ include 'head.php';
 </section>
 
 
-
 <script src="../../js/script.js"></script>
+
 <?php
   include 'footer.php';
 ?>
