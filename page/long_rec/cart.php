@@ -10,6 +10,7 @@ if(isset($_POST['delete_produc_cart'])){
 };
 
 if(isset($_POST['regist-prod-sale'])){
+  $_SESSION['status_butt']=1;
   $user_id_regist_prod = $_SESSION['usua_id'];
   $amount = $_SESSION['amount_play'];
 
@@ -57,6 +58,8 @@ if(isset($_POST['regist-prod-sale'])){
 </head>
 
 <body>
+
+
 
 <?php
 include 'head.php';
@@ -110,9 +113,7 @@ include 'head.php';
             <button class="fa-solid fa-money-bill-transfer" onclick="openModal()">Pago con transferencia</button>
           </div>
 
-          <div class="btn-pag2">
-            <button class="fa-brands fa-paypal">Pagar con paypal</button>
-        </div>
+          <div id="paypal-button-container"></div>
 
         <div class="modal" id="modalAdd">
           <div class="modal-container">
@@ -128,7 +129,7 @@ include 'head.php';
             
             <form action="" method="post" class="sale-cart">
               <div class="btn-cart-prod-sale">
-
+                <?php $_SESSION['status_butt']=0;?>
                 <input type="submit" class="btn-prod-sale" name="regist-prod-sale" value="Aceptar">
                 <button class="btn-prod-close" onclick="closeModal()">Cancelar</button>
               </div>
@@ -156,6 +157,82 @@ include 'head.php';
 
 
 <script src="../../js/script.js"></script>
+
+<?php 
+  define("CLIENT_ID","AQ1Uw80JQF0R-H3rEqfTT1yz5oa_JRR-W3zOGQ49sl8DUtittHCLQxJnZuS6OkK7StD49dyRfx7Tz01i");
+  define("CURRENCY","MXN");
+  define("KEY_TOKEN","APR.wqc-354*");
+  define("MONEDA","$");
+?>
+
+<script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID;?>&currency=<?php echo CURRENCY;?>"> 
+</script>
+
+<script>
+  paypal.Buttons({
+      style:{
+        color:'blue',
+        shape:'pill',
+        label:'pay'
+      },
+      createOrder: function(data, actions){
+        return actions.order.create({
+          purchase_units: [{
+            amount:{
+              value: <?php $amount_paypal = $_SESSION['amount_play'];
+              echo $amount_paypal;
+                ?>
+            }
+          }]
+        });
+      },
+
+      onApprove: function(data, actions){
+        actions.order.capture().then(function (detalles){
+          <?php
+          if($_SESSION['status_butt']==0){
+            $user_id_regist_prod = $_SESSION['usua_id'];
+            $amount = $_SESSION['amount_play'];
+
+            $on_products= mysqli_query($conn,"SELECT * FROM `detalle_temp` INNER JOIN `producto` ON detalle_temp.producto_id= producto.id_prod WHERE detalle_temp.usua_id_temp='$user_id_regist_prod' AND detalle_temp.status_temp=0") or die ("busqueda de productos fallada");
+
+
+              if (mysqli_num_rows($on_products)>0) {
+              $total_rows = mysqli_num_rows($on_products);
+
+              $show_orden_ft= mysqli_query($conn,"INSERT INTO `pedido` (usuario_id, monto_pedi,pago_pedi,status_pedi) values ('$user_id_regist_prod','$amount','Paypal',0)") or die ("busqueda de productos fallada");
+
+              $search_products= mysqli_query($conn,"SELECT * FROM `pedido` WHERE `usuario_id`=$user_id_regist_prod") or die ("busqueda de productos fallada");
+
+              $row = mysqli_fetch_array($search_products);
+              $puesto = $row['id_pedi'];
+
+                while ($fetch_cart_off = mysqli_fetch_assoc($on_products)) {
+          
+                  $price_prod=$fetch_cart_off['precio_prod'];
+                  $amount_prod=$fetch_cart_off['cantidad_temp'];
+                  $produc_off =$fetch_cart_off['id_prod'];
+
+                  $produc_detail_product= mysqli_query($conn,"INSERT INTO `detalle_pedido` (pedido_id,producto_id,precio_detap,cantidad_detap) values ($puesto,$produc_off,$price_prod,$amount_prod)") or die ("busqueda de productos fallada");
+
+                  $off_products = mysqli_query($conn, "UPDATE `detalle_temp` SET `status_temp`=1 WHERE `producto_id`=$produc_off and `usua_id_temp`=$user_id_regist_prod") or die ("Error en la consulta 16");
+
+        }
+      }
+    }
+          ?>
+          alert("Pago exitoso");
+
+          window.location.href="major.php"
+        });
+      },
+
+      onCancel: function(data) {
+        alert("Pago cancelado");
+        console.log(data);
+      }
+    }).render('#paypal-button-container');
+</script>
 
 <?php
   include 'footer.php';
