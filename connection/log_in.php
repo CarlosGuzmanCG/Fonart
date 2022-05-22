@@ -1,6 +1,10 @@
 <?php
 include 'conf.php';
+
 session_start();
+$select = mysqli_query($conn, "SELECT * FROM tabla") or die('consulta fallada');
+$row = mysqli_fetch_array($select);
+$_SESSION['usua_id'] = $row['id_usua'];
 
 if(isset($_POST['submit'])){
 
