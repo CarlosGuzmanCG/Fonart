@@ -1,5 +1,5 @@
 <?php
-include 'conf.php';
+include 'conf_connection.php';
 
 session_start();
 session_unset();

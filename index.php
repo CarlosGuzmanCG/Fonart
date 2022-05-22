@@ -72,8 +72,8 @@ include 'head_index.php';
         <input type="hidden" name="produ_description" value="<?php echo $fetch_products['descripcion_prod']; ?>">
         <input type="hidden" name="produ_price" value="<?php echo $fetch_products['precio_prod']; ?>">
 
-        <a href="page/long_rec/record.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
-        <a href="page/long_rec/login.php" style="text-decoration: none;"><input type="button" value="Agregar al carrito" name="addd_cart" class="btn-prod"></a>
+        <a href="page/long_rec/record_long_rec.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
+        <a href="page/long_rec/login_long_rec.php" style="text-decoration: none;"><input type="button" value="Agregar al carrito" name="addd_cart" class="btn-prod"></a>
         </form>
       <?php
       };

@@ -1,5 +1,5 @@
 <?php
-include '../../connection/access_major.php';
+include '../../connection/access_major_connection.php';
 //echo "<script>console.log('id_us: ' ".$user_id.");</script>";
 
 if(isset($_POST['add_cart_prod'])){
@@ -33,7 +33,7 @@ if(isset($_POST['see_prod'])){
 <body>
   
 <?php
-include 'head.php';
+include 'head_long_rec.php';
 ?>
 
 
@@ -76,7 +76,7 @@ include 'head.php';
 
 <br><br><br>
 <?php
-  include 'footer.php';
+  include 'footer_long_rec.php';
 ?>
 </body>
 </html>

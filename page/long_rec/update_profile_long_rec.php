@@ -1,5 +1,5 @@
 <?php
-include '../../connection/access_major.php';
+include '../../connection/access_major_connection.php';
 
 if (isset($_POST['upd_profile'])) {
 
@@ -44,7 +44,7 @@ if (isset($_POST['upd_profile'])) {
 <body>
 
 <?php
-include 'head.php';
+include 'head_long_rec.php';
 ?>
 
 <section class="upd-prof">
@@ -113,7 +113,7 @@ include 'head.php';
 
 <script src="../../js/script.js"></script>
 <?php
-  include 'footer.php';
+  include 'footer_long_rec.php';
 ?>
 </body>
 </html>

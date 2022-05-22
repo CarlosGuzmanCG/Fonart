@@ -1,5 +1,5 @@
 <?php
-include '../../connection/log_in.php';
+include '../../connection/log_in_connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ include '../../connection/log_in.php';
 <body>
 
 <?php
-include '../../connection/mens.php';
+include '../../connection/mens_connection.php';
 ?>
   
  <header class="encabezado">
@@ -39,7 +39,7 @@ include '../../connection/mens.php';
       <input type="submit" name="submit" class="btn" value="Continuar">
 
       <p>¿Eres nuevo en FONART?</p>
-      <a href="record.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
+      <a href="record_long_rec.php"><input type="button" class="btnCreaton" value="Crear tu cuenta de FONART"></a>
     </form>
 
   </div>

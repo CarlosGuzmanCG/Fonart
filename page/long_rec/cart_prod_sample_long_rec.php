@@ -1,5 +1,5 @@
 <?php
-include '../../connection/access_major.php';
+include '../../connection/access_major_connection.php';
 
 if(isset($_POST['add_cart_prod'])){
   $id_prod = $_POST['id_prod'];
@@ -33,7 +33,7 @@ if(isset($_POST['add_cart_prod'])){
 <body>
 
 <?php
-include 'head.php';
+include 'head_long_rec.php';
 ?>
 
   <div class="grid-container-prod">
@@ -135,7 +135,7 @@ include 'head.php';
 <br><br><br>
 
 <?php
-  include 'footer.php';
+  include 'footer_long_rec.php';
 ?>
 
 </body>

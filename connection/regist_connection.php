@@ -1,5 +1,5 @@
 <?php
-include 'conf.php';
+include 'conf_connection.php';
 if(isset($_POST['submit'])){
   $name = mysqli_real_escape_string($conn, $_POST['name']);
   $lastName = mysqli_real_escape_string($conn, $_POST['lastName']);
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
   }else{
     mysqli_query($conn, "INSERT INTO `usuario` (nombre_usua,apellido_usua,email_usua,password_usua,rol_id) VALUES ('$name','$lastName','$email','$pass','$rol')") or die ('consulta fallada 2');
     $mensaje[] = 'registro exitoso!';
-    header('location:../../page/long_rec/login.php');
+    header('location:../../page/long_rec/login_long_rec.php');
   }
   }else{
     $mensaje[] = 'Contraseñas diferentes, verificar!';

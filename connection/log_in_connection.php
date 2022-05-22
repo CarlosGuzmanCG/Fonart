@@ -1,5 +1,5 @@
 <?php
-include 'conf.php';
+include 'conf_connection.php';
 
 session_start();
 
@@ -24,7 +24,7 @@ if(isset($_POST['submit'])){
     }else if($puesto['usuario_rol']==2){
       header('location:../../page/long_rec/test.php');
     }else if($puesto['usuario_rol']==3){
-    header('location:../../page/long_rec/major.php');
+    header('location:../../page/long_rec/major_long_rec.php');
     }
   }else{
     $mensaje[] = 'Contraseña o Usuario incorrecto';

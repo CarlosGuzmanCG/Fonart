@@ -1,5 +1,5 @@
 <?php
-include 'connection/conf.php';
+include 'connection/conf_connection.php';
 ?>
 
 <header class="header">
@@ -23,8 +23,8 @@ include 'connection/conf.php';
 
       
       <div class="flex-btn">
-        <a href="page/long_rec/login.php" class="option-btn">Iniciar sesión</a>
-        <a href="page/long_rec/record.php" class="option-btn">Crear cuenta</a>
+        <a href="page/long_rec/login_long_rec.php" class="option-btn">Iniciar sesión</a>
+        <a href="page/long_rec/record_long_rec.php" class="option-btn">Crear cuenta</a>
       </div>
         </div>
     </div>

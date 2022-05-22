@@ -1,5 +1,5 @@
 <?php
-include '../../connection/access_major.php';
+include '../../connection/access_major_connection.php';
 
 if(isset($_POST['delete_produc_cart'])){
   $id_prod = $_POST['id_temp_cart'];
@@ -62,7 +62,7 @@ if(isset($_POST['regist-prod-sale'])){
 
 
 <?php
-include 'head.php';
+include 'head_long_rec.php';
 ?>
 
   <section class="wish-list-cart">
@@ -235,7 +235,7 @@ include 'head.php';
 </script>
 
 <?php
-  include 'footer.php';
+  include 'footer_long_rec.php';
 ?>
 
 </body>

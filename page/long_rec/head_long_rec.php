@@ -1,5 +1,5 @@
 <?php
-include '../../connection/mens.php';
+include '../../connection/mens_connection.php';
 ?>
 
 <header class="header">
@@ -8,9 +8,9 @@ include '../../connection/mens.php';
       <a  href="https://www.gob.mx/fonart" target="_black">
         <img class="logo" src="../../assets/logofonart.png" alt="" ></a>
         <nav class="navbar">
-          <a class="nac" href="major.php">Inicio</a>
-          <a class="#" href="home_produc.php">Para el hogar</a>
-          <a class="#" href="clothing_produc.php">Para vestir</a>
+          <a class="nac" href="major_long_rec.php">Inicio</a>
+          <a class="#" href="home_produc_long_rec.php">Para el hogar</a>
+          <a class="#" href="clothing_produc_long_rec.php">Para vestir</a>
         </nav>
 
         <div class="icons">
@@ -22,7 +22,7 @@ include '../../connection/mens.php';
             $total_prod_rows = mysqli_num_rows($select_products_cart);
           ?>
 
-          <a href="cart.php"><i class="fas fa-shopping-cart"></i><span><?php if($total_prod_rows==0){}else if($total_prod_rows<=99){echo $total_prod_rows;}else{echo "99+";} ?></span></a>
+          <a href="cart_long_rec.php"><i class="fas fa-shopping-cart"></i><span><?php if($total_prod_rows==0){}else if($total_prod_rows<=99){echo $total_prod_rows;}else{echo "99+";} ?></span></a>
           <div id="user-btn" class="fas fa-user"></div>
           
         </div>
@@ -42,8 +42,8 @@ include '../../connection/mens.php';
 
       
       <div class="flex-btn">
-        <a href="update_profile.php" class="option-btn">Actualizar datos</a>
-        <a href="../../connection/logout.php" class="option-btn">cerrar sesión</a>
+        <a href="update_profile_long_rec.php" class="option-btn">Actualizar datos</a>
+        <a href="../../connection/logout_connection.php" class="option-btn">cerrar sesión</a>
       </div>
         </div>
     </div>

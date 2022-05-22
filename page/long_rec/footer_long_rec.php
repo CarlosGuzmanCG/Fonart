@@ -8,7 +8,7 @@
 
     <div class="box-icons">
       <h3>Contacto</h3>
-      <a href="form.php"><i class="fa-solid fa-comment"></i> Dudas o aclaraciones</a>
+      <a href="form_long_rec.php"><i class="fa-solid fa-comment"></i> Dudas o aclaraciones</a>
       <p><i class="fa-solid fa-location-dot"></i> Av. Patriotismo 691 Col. Mixcoac C.P. 03910, Benito Juárez, Ciudad de México</p>
       <p><i class="fa-solid fa-phone"></i> +55 50936000</p>
     </div>

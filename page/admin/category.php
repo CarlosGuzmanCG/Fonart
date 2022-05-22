@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
+include('../../connection/conf.php');
 ?>
 
 <head>
@@ -77,7 +77,7 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 
     <div class="main-container">
         <div class="body-nav-bar">
-            <img src="/assets/Logo_FONART.png">
+            <img src="../../assets/Logo_FONART.png">
             <center>
                 <h3>Administrador</h3>
             </center>

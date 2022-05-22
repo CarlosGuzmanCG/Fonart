@@ -1,5 +1,5 @@
 <?php
-include '../../connection/regist.php';
+include '../../connection/regist_connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ include '../../connection/regist.php';
 <body>
 
 <?php
-include '../../connection/mens.php';
+include '../../connection/mens_connection.php';
 ?>
 
   <header class="encabezado">
@@ -41,7 +41,7 @@ include '../../connection/mens.php';
       <input type="password" name="password" required placeholder="Ingrese su contraseña" class="box">
       <input type="password" name="cpassword" required placeholder="Ingrese su contraseña" class="box">
       <input type="submit" name="submit" class="btn" value="Crear cuenta">
-      <p>¿Ya tienes una cuenta?  <a href="login.php">Iniciar sesión</a></p>
+      <p>¿Ya tienes una cuenta?  <a href="login_long_rec.php">Iniciar sesión</a></p>
     </form>
   </div>
 </body>
