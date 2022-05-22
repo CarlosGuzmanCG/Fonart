@@ -3,7 +3,6 @@
 <?php 
 include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 ?>
-
 <head>
     <title>Administrador | Productos </title>
     <link rel="stylesheet" type="text/css" href="/css/adm_sel.css">
@@ -17,69 +16,58 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
-
 <body>
-    <div class="modal" id="modal-categoria" style="display: none;">
+    <div class="modal" id="modal-producto" style="display: none;">
         <div class="body-modal">
-        <button class="btn-close" onclick="hide_modal('modal-categoria')"><i class="fa fa-times"
+            <button class="btn-close" onclick="hide_modal('modal-producto')"><i class="fa fa-times"
                     aria-hidden="true"></i></button>
-            <h3>Añadir categoria</h3>
-
+            <h3>Aniadir rol</h3>
             <div class="div-flex">
-                <label>Nombre de la categora</label>
-                <input type="text" id="nomcat">
-            </div>
-            <div class="div-flex">
-                <label>Descripcion</label>
-                <input type="text" id="descrip">
+                <label>Descripcion de rol</label>
+                <input type="text" id="descripcion">
             </div>
             <button onclick="save_producto()">Guardar</button>
         </div>
     </div>
+
+
     <div class="container">
 
 
-        <!-- Modal -->
-        <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar datos del producto</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!--Formulario-->
-                        <form name="formCategory" id="formCategory" enctype="multipart/form-data">
-                            <input type="hidden" name="idf" id="idf">
-                            <div class="form-group">
-                                <label for="">Nombre de la categoria</label>
-                                <input type="text" REQUIRED  name="nombreCat" id="nombreCat" class="form-control">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Descripcion</label>
-                                <input type="text" REQUIRED name="descripCat" id="descripCat" class="form-control">
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="btnenviar" name="btnenviar" >Enviar</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="recarga()">Cerrar</button>
-                        </form>
-                    </div>
-                    
-                </div>
+<!-- Modal -->
+<div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editar datos del producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                <!--Formulario-->
+                <form name="formCategory" id="formCategory" enctype="multipart/form-data">
+                    <input type="hidden" name="idf" id="idf">
+                    <div class="form-group">
+                        <label for="">Descripcion</label>
+                        <input type="text" REQUIRED name="descripCat" id="descripCat" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnenviar" name="btnenviar" >Enviar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="recarga()">Cerrar</button>
+                </form>
+            </div>
+            
         </div>
-
-
     </div>
+</div>
+</div>
+   
     <!-- Button trigger modal -->
-
     <div class="main-container">
         <div class="body-nav-bar">
             <img src="/assets/Logo_FONART.png">
             <center>
-                <h3>Administrador</h3>
+                <h3>Roles</h3>
             </center>
             <ul class="mt10">
                 <li><a href="category.php">Categoria</a></li>
@@ -93,33 +81,28 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
             </ul>
         </div>
         <div class="body-page">
-            <h2>Categoras</h2>
+            <h2>Roles</h2>
             <table class="mt10">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nombre</th>
                         <th>Descripcion</th>
-                        <th>Dato</th>
                         <th class="td-option">Opciones</th>
                     </tr>
                 </thead>
                 <?php
-$query = "SELECT * FROM categoria";
+$query = "SELECT * FROM rol";
 if ($result = $conn->query($query)) {
 while ($row = $result->fetch_assoc()) {
 echo
 '
 <tr>
-<td>'.$row['id_cate'].'</td>
-<td>'.$row['nombre_cate'].'</td>
-<td>'.$row['descripcion_cate'].'</td>
-<td>'.$row['datecreated'].'</td>
-
+<td>'.$row['id_rol'].'</td>
+<td>'.$row['descripcion_rol'].'</td>
 <td class="td-option">
 <div class="div-flex div-td-button">
 <button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-<button type="button" onclick="delete_product('.$row['id_cate'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+<button type="button" onclick="delete_product('.$row['id_rol'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
 </div>
 </td>
@@ -131,7 +114,7 @@ $result->free();
 ?>
 </body>
 </table>
-<button class="mt10" onclick="show_modal('modal-categoria')">Editar</button>
+<button class="mt10" onclick="show_modal('modal-producto')">Editar</button>
 </div>
 </div>
 <script type="text/javascript">
@@ -142,14 +125,13 @@ $result->free();
         document.getElementById(id).style.display = "none";
     }
     function recarga(){
-      window.location.reload();
-  }
+        window.location.reload();
+    }
     function save_producto() {
         let fd = new FormData();
-        fd.append('nombre', document.getElementById('nomcat').value);
-        fd.append('descripcion', document.getElementById('descrip').value);
+        fd.append('descripcion', document.getElementById('descripcion').value);
         let request = new XMLHttpRequest();
-        request.open('POST', 'php/category_save.php', true);
+        request.open('POST', 'php/role_save.php', true);
         request.onload = function () {
             if (request.readyState == 4 && request.status == 200) {
                 let response = JSON.parse(request.responseText);
@@ -163,12 +145,12 @@ $result->free();
         request.send(fd);
     }
     function delete_product(codpro) {
-        var c = confirm("Estas seguro de eliminar el producto de codigo " + codpro + "?");
+        var c = confirm("Estas seguro de eliminar el rol de codigo " + codpro + "?");
         if (c) {
             let fd = new FormData();
             fd.append('codpro', codpro);
             let request = new XMLHttpRequest();
-            request.open('POST', 'php/category_delete.php', true);
+            request.open('POST', 'php/role_delete.php', true);
             request.onload = function () {
                 if (request.readyState == 4 && request.status == 200) {
                     let response = JSON.parse(request.responseText);
@@ -185,29 +167,21 @@ $result->free();
         }
     }
     $('.editbtn').on('click', function () {
-
         $tr = $(this).closest('tr');
         var datos = $tr.children("td").map(function () {
             return $(this).text();
         });
         $('#idf').val(datos[0]);
-        $('#nombreCat').val(datos[1]);
-        $('#descripCat').val(datos[2]);
+        $('#descripCat').val(datos[1]);
     });
-
-
     $(function(){
-    $("#formCategory").on("submit", function(e){
-        // Cancelamos el evento si se requiere 
+    $("#formCategory").on("submit", function(e){ 
         e.preventDefault();
-        // Obtenemos los datos del formulario 
         var f = $(this);
         var formData = new FormData(document.getElementById("formCategory"));
-       
         formData.append("dato", "valor");     
-        // Enviamos los datos al archivo PHP que procesará el envio de los datos a un determinado correo 
         $.ajax({
-            url: "php/category_edit.php",
+            url: "php/role_edit.php",
             type: "post",
             dataType: "json",
             data: formData,

@@ -3,7 +3,6 @@
 <?php 
 include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 ?>
-
 <head>
     <title>Administrador | Productos </title>
     <link rel="stylesheet" type="text/css" href="/css/adm_sel.css">
@@ -19,26 +18,32 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 </head>
 
 <body>
-    <div class="modal" id="modal-categoria" style="display: none;">
+    <div class="modal" id="modal-producto" style="display: none;">
         <div class="body-modal">
-        <button class="btn-close" onclick="hide_modal('modal-categoria')"><i class="fa fa-times"
+            <button class="btn-close" onclick="hide_modal('modal-producto')"><i class="fa fa-times"
                     aria-hidden="true"></i></button>
-            <h3>Añadir categoria</h3>
-
+            <h3>Aniadir producto</h3>
             <div class="div-flex">
-                <label>Nombre de la categora</label>
-                <input type="text" id="nomcat">
+                <label>Pedido Id</label>
+                <input type="number" id="pedidoId">
             </div>
             <div class="div-flex">
-                <label>Descripcion</label>
-                <input type="text" id="descrip">
+                <label>Producto Id</label>
+                <input type="number" id="ProductoId">
             </div>
+            <div class="div-flex">
+                <label>Precio</label>
+                <input type="number" id="precio">
+            </div>
+            <div class="div-flex">
+                <label>Cantidad</label>
+                <input type="number" id="cantidad">
+            </div>
+           
             <button onclick="save_producto()">Guardar</button>
         </div>
     </div>
     <div class="container">
-
-
         <!-- Modal -->
         <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -51,27 +56,41 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
                     </div>
                     <div class="modal-body">
                         <!--Formulario-->
-                        <form name="formCategory" id="formCategory" enctype="multipart/form-data">
-                            <input type="hidden" name="idf" id="idf">
+                        <form name="formProduct" id="formProduct" enctype="multipart/form-data">
+                            <input type="hidden" name="id" id="id">
                             <div class="form-group">
-                                <label for="">Nombre de la categoria</label>
-                                <input type="text" REQUIRED  name="nombreCat" id="nombreCat" class="form-control">
+                                <label for="">Codigo del producto</label>
+                                <input type="number" REQUIRED  name="codigo" id="codigo" class="form-control">
                             </div>
 
                             <div class="form-group">
-                                <label for="">Descripcion</label>
-                                <input type="text" REQUIRED name="descripCat" id="descripCat" class="form-control">
+                                <label for="">nombre</label>
+                                <input type="text" REQUIRED name="nombre" id="nombre" class="form-control">
                             </div>
-                            <button type="submit" class="btn btn-primary" id="btnenviar" name="btnenviar" >Enviar</button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="recarga()">Cerrar</button>
+                            <div class="form-group">
+                                <label for="">Descripcion</label>
+                                <input type="text" REQUIRED  name="descripcion" id="descripcion" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Precio</label>
+                                <input type="number" REQUIRED  name="precio" id="precio" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Stock</label>
+                                <input type="number" REQUIRED  name="stock" id="stock" class="form-control">
+                            </div>
+                           
+                            <div class="msg mt-3 mb-3"></div>
+                            <button type="submit" class="btn btn-primary" id="btnenviar" name="btnenviar">Enviar</button>
                         </form>
                     </div>
-                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <input type="submit" value="ingresar" >
+                    </div>
                 </div>
             </div>
         </div>
-
-
     </div>
     <!-- Button trigger modal -->
 
@@ -93,34 +112,40 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
             </ul>
         </div>
         <div class="body-page">
-            <h2>Categoras</h2>
+            <h2>Detalles de orden</h2>
             <table class="mt10">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Dato</th>
+                        <th>Id detalle</th>
+                        <th>Pedido Id</th>
+                        <th>Producto Id</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        
+
                         <th class="td-option">Opciones</th>
                     </tr>
                 </thead>
+
                 <?php
-$query = "SELECT * FROM categoria";
+$query = "SELECT * FROM detalle_pedido";
 if ($result = $conn->query($query)) {
 while ($row = $result->fetch_assoc()) {
 echo
 '
 <tr>
-<td>'.$row['id_cate'].'</td>
-<td>'.$row['nombre_cate'].'</td>
-<td>'.$row['descripcion_cate'].'</td>
-<td>'.$row['datecreated'].'</td>
+<td>'.$row['id_detap'].'</td>
+<td>'.$row['pedido_id'].'</td>
+<td>'.$row['producto_id'].'</td>
+<td>'.$row['precio_detap'].'</td>
+<td>'.$row['cantidad_detap'].'</td>
 
 <td class="td-option">
 <div class="div-flex div-td-button">
-<button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-<button type="button" onclick="delete_product('.$row['id_cate'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
-
+    <button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar">
+        Insertar
+    </button>
+<button onclick="delete_product('.$row['id_detap'].')"><i class="fa fa-trash" aria-hidden="true"></i></button>
 </div>
 </td>
 </tr>
@@ -129,27 +154,29 @@ echo
 $result->free();
 }
 ?>
+
 </body>
+
 </table>
-<button class="mt10" onclick="show_modal('modal-categoria')">Editar</button>
+<button class="mt10" onclick="show_modal('modal-producto')">Editar</button>
 </div>
 </div>
 <script type="text/javascript">
     function show_modal(id) {
         document.getElementById(id).style.display = "block";
     }
+
     function hide_modal(id) {
         document.getElementById(id).style.display = "none";
     }
-    function recarga(){
-      window.location.reload();
-  }
+
     function save_producto() {
         let fd = new FormData();
-        fd.append('nombre', document.getElementById('nomcat').value);
-        fd.append('descripcion', document.getElementById('descrip').value);
-        let request = new XMLHttpRequest();
-        request.open('POST', 'php/category_save.php', true);
+        fd.append('pedidoId', document.getElementById('pedidoId').value);
+        fd.append('ProductoId', document.getElementById('ProductoId').value);
+        fd.append('precio', document.getElementById('precio').value);
+        fd.append('cantidad', document.getElementById('cantidad').value);
+        request.open('POST', 'php/D_order_save.php', true);
         request.onload = function () {
             if (request.readyState == 4 && request.status == 200) {
                 let response = JSON.parse(request.responseText);
@@ -161,6 +188,7 @@ $result->free();
             }
         }
         request.send(fd);
+
     }
     function delete_product(codpro) {
         var c = confirm("Estas seguro de eliminar el producto de codigo " + codpro + "?");
@@ -168,7 +196,7 @@ $result->free();
             let fd = new FormData();
             fd.append('codpro', codpro);
             let request = new XMLHttpRequest();
-            request.open('POST', 'php/category_delete.php', true);
+            request.open('POST', 'php/D_order_delete.php', true);
             request.onload = function () {
                 if (request.readyState == 4 && request.status == 200) {
                     let response = JSON.parse(request.responseText);
@@ -190,24 +218,29 @@ $result->free();
         var datos = $tr.children("td").map(function () {
             return $(this).text();
         });
-        $('#idf').val(datos[0]);
-        $('#nombreCat').val(datos[1]);
-        $('#descripCat').val(datos[2]);
+        $('#id').val(datos[0]);
+        $('#codigo').val(datos[1]);
+        $('#nombre').val(datos[2]);
+        $('#descripcion').val(datos[3]);
+        $('#precio').val(datos[4]);
+        $('#stock').val(datos[5]);
+        $('imagen-e').val(datos[6]);
+        $('#categoria').val(datos[7]);
+
     });
 
-
     $(function(){
-    $("#formCategory").on("submit", function(e){
+    $("#formProduct").on("submit", function(e){
         // Cancelamos el evento si se requiere 
         e.preventDefault();
         // Obtenemos los datos del formulario 
         var f = $(this);
-        var formData = new FormData(document.getElementById("formCategory"));
+        var formData = new FormData(document.getElementById("formProduct"));
        
         formData.append("dato", "valor");     
         // Enviamos los datos al archivo PHP que procesará el envio de los datos a un determinado correo 
         $.ajax({
-            url: "php/category_edit.php",
+            url: "/connection/edit_product.php",
             type: "post",
             dataType: "json",
             data: formData,

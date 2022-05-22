@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
+include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 ?>
 
 <head>
@@ -17,7 +17,6 @@ include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
-
 <body>
     <div class="modal" id="modal-producto" style="display: none;">
         <div class="body-modal">
@@ -46,16 +45,28 @@ include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
             </div>
             <div class="div-flex">
                 <label>Categoria</label>
-                <input type="number" id="categoriaProd">
+                <select class="form-select" REQUIRED name="categoriaProd" id="categoriaProd">
+                    <option selected>menu</option>
+                    <option value="1" >One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+               </select>   
             </div>
 
             <div class="div-flex">
-                <input type="file" id="imagen">
+                <input type="file" id="imagen1">
+            </div>
+            <div class="div-flex">
+                <input type="file" id="imagen2">
+            </div>
+            <div class="div-flex">
+                <input type="file" id="imagen3">
             </div>
 
             <button onclick="save_producto()">Guardar</button>
         </div>
     </div>
+    
     <div class="container">
         <!-- Modal -->
         <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -75,7 +86,6 @@ include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
                                 <label for="">Codigo del producto</label>
                                 <input type="number" REQUIRED  name="codigo" id="codigo" class="form-control">
                             </div>
-
                             <div class="form-group">
                                 <label for="">nombre</label>
                                 <input type="text" REQUIRED name="nombre" id="nombre" class="form-control">
@@ -94,19 +104,29 @@ include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
                             </div>
                             <div class="form-group">
                                 <label for="">Categoria</label>
-                                <input type="number" REQUIRED  name="categoria" id="categoria" class="form-control">
+                                <select class="form-select" REQUIRED name="categoria" id="categoria">
+                                        <option selected>menu</option>
+                                        <option value="1" >One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                </select>   
                             </div>
                             <div class="form-group">
-                                <label for="">Imagen</label>
-                                <input type="file" REQUIRED  name="imagen-e" id="imagen-e" class="form-control">
+                                <label for="">Imagen 1</label>
+                                <input type="file" REQUIRED  name="imagen-e1" id="imagen-e1" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Imagen 2</label>
+                                <input type="file" REQUIRED  name="imagen-e2" id="imagen-e2" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Imagen 3</label>
+                                <input type="file" REQUIRED  name="imagen-e3" id="imagen-e3" class="form-control">
                             </div>
                             <div class="msg mt-3 mb-3"></div>
-                            <button type="submit" class="btn btn-primary" id="btnenviar" name="btnenviar">Enviar</button>
+                            <button type="submit" class="btn btn-primary" id="btnenviar" name="btnenviar" >Enviar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="recarga()">Cerrar</button>
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <input type="submit" value="ingresar" >
                     </div>
                 </div>
             </div>
@@ -124,7 +144,7 @@ include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
                 <li><a href="category.php">Categoria</a></li>
                 <li><a href="D_order.php">detalle pedidos</a></li>
                 <li><a href="time.php">Tiempo</a></li>
-                <li><a href="order.php">Pedido</a></li>
+                <li><a href="orders.php">Pedido</a></li>
                 <li><a href="product.php">Producto</a></li>
                 <li><a href="role.php">Rol</a></li>
                 <li><a href="users.php">Usuario</a></li>
@@ -163,15 +183,15 @@ echo
 <td>'.$row['descripcion_prod'].'</td>
 <td>'.$row['precio_prod'].'</td>
 <td>'.$row['stock_prod'].'</td>
-<td>'.$row['nombre_img_prod'].'</td>
+<td>'.$row['nombre_img_prod_1'].'</td>
 <td>'.$row['categoria_id'].'</td>
 <td>'.$row['datacreate'].'</td>
 <td class="td-option">
 <div class="div-flex div-td-button">
-    <button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar">
-        Insertar
-    </button>
-<button onclick="delete_product('.$row['id_prod'].')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+<button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+<button type="button" onclick="delete_product('.$row['id_prod'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+
 </div>
 </td>
 </tr>
@@ -184,7 +204,7 @@ $result->free();
 </body>
 
 </table>
-<button class="mt10" onclick="show_modal('modal-producto')">Editar</button>
+<button class="mt10" onclick="show_modal('modal-producto')">Insertar</button>
 </div>
 </div>
 <script type="text/javascript">
@@ -195,6 +215,9 @@ $result->free();
     function hide_modal(id) {
         document.getElementById(id).style.display = "none";
     }
+    function recarga(){
+        window.location.reload();
+    }
 
     function save_producto() {
         let fd = new FormData();
@@ -204,9 +227,11 @@ $result->free();
         fd.append('stockProd', document.getElementById('stockProd').value);
         fd.append('precioProd', document.getElementById('precioProd').value);
         fd.append('categoriaProd', document.getElementById('categoriaProd').value);
-        fd.append('imagen', document.getElementById('imagen').files[0]);
+        fd.append('imagen1', document.getElementById('imagen1').files[0]);
+        fd.append('imagen2', document.getElementById('imagen2').files[0]);
+        fd.append('imagen3', document.getElementById('imagen3').files[0]);
         let request = new XMLHttpRequest();
-        request.open('POST', '/connection/product_save.php', true);
+        request.open('POST', 'php/product_save.php', true);
         request.onload = function () {
             if (request.readyState == 4 && request.status == 200) {
                 let response = JSON.parse(request.responseText);
@@ -220,13 +245,13 @@ $result->free();
         request.send(fd);
 
     }
-    function delete_product(codpro) {
+    function delete_product(codpro){
         var c = confirm("Estas seguro de eliminar el producto de codigo " + codpro + "?");
         if (c) {
             let fd = new FormData();
             fd.append('codpro', codpro);
             let request = new XMLHttpRequest();
-            request.open('POST', '/connection/delete_product.php', true);
+            request.open('POST', 'php/product_delete.php', true);
             request.onload = function () {
                 if (request.readyState == 4 && request.status == 200) {
                     let response = JSON.parse(request.responseText);
@@ -254,23 +279,19 @@ $result->free();
         $('#descripcion').val(datos[3]);
         $('#precio').val(datos[4]);
         $('#stock').val(datos[5]);
-        $('imagen-e').val(datos[6]);
+        $('imagen-e1').val(datos[6]);
         $('#categoria').val(datos[7]);
 
     });
 
     $(function(){
     $("#formProduct").on("submit", function(e){
-        // Cancelamos el evento si se requiere 
         e.preventDefault();
-        // Obtenemos los datos del formulario 
         var f = $(this);
-        var formData = new FormData(document.getElementById("formProduct"));
-       
+        var formData = new FormData(document.getElementById("formProduct"));    
         formData.append("dato", "valor");     
-        // Enviamos los datos al archivo PHP que procesará el envio de los datos a un determinado correo 
         $.ajax({
-            url: "/connection/edit_product.php",
+            url: "php/product_edit.php",
             type: "post",
             dataType: "json",
             data: formData,
@@ -278,15 +299,9 @@ $result->free();
             contentType: false,
             processData: false,
             beforeSend: function() {
-              $('.msg').html("<img src='img/ajax-loader.gif' />");
+             
             },
         })
-        // Cuando el formulario es enviado, mostramos un mensaje en la vista HTML 
-        // En el archivo enviarcorreo.php devuelvo el valor '1' el cual es procesado con jQuery Ajax 
-        // y significa que el mensaje se envio satisfactoriamente. 
-       
-       
- 
     });
 });
  

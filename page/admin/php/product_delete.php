@@ -1,6 +1,5 @@
-
 <?php
-	include('/home/pablo/Documentos/GitHub/Fonart/connection/conf.php');
+	include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 	$response=new stdClass();
 
 	$codpro=$_POST['codpro'];
