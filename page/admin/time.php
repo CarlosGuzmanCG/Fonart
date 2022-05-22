@@ -19,6 +19,7 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 </head>
 
 <body>
+    <!--
     <div class="modal" id="modal-categoria" style="display: none;">
         <div class="body-modal">
         <button class="btn-close" onclick="hide_modal('modal-categoria')"><i class="fa fa-times"
@@ -38,7 +39,7 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
     </div>
     <div class="container">
 
-
+-->
         <!-- Modal -->
         <div class="modal fade" id="editar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -93,33 +94,35 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
             </ul>
         </div>
         <div class="body-page">
-            <h2>Categoras</h2>
+            <h2>Detalle tiempo</h2>
             <table class="mt10">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Descripcion</th>
-                        <th>Dato</th>
+                        <th>Producto id</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Token</th>
                         <th class="td-option">Opciones</th>
                     </tr>
                 </thead>
                 <?php
-$query = "SELECT * FROM categoria";
+$query = "SELECT * FROM detalle_temp";
 if ($result = $conn->query($query)) {
 while ($row = $result->fetch_assoc()) {
 echo
 '
 <tr>
-<td>'.$row['id_cate'].'</td>
-<td>'.$row['nombre_cate'].'</td>
-<td>'.$row['descripcion_cate'].'</td>
-<td>'.$row['datecreated'].'</td>
+<td>'.$row['id_temp'].'</td>
+<td>'.$row['producto_id'].'</td>
+<td>'.$row['precio_temp'].'</td>
+<td>'.$row['cantidad_temp'].'</td>
+<td>'.$row['token'].'</td>
 
 <td class="td-option">
 <div class="div-flex div-td-button">
-<button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-<button type="button" onclick="delete_product('.$row['id_cate'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+<!--<button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
+<button type="button" onclick="delete_product('.$row['id_temp'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
 </div>
 </td>
@@ -131,7 +134,7 @@ $result->free();
 ?>
 </body>
 </table>
-<button class="mt10" onclick="show_modal('modal-categoria')">Editar</button>
+<!--<button class="mt10" onclick="show_modal('modal-categoria')">Subir</button>-->
 </div>
 </div>
 <script type="text/javascript">
@@ -168,7 +171,7 @@ $result->free();
             let fd = new FormData();
             fd.append('codpro', codpro);
             let request = new XMLHttpRequest();
-            request.open('POST', 'php/category_delete.php', true);
+            request.open('POST', 'php/time_delete.php', true);
             request.onload = function () {
                 if (request.readyState == 4 && request.status == 200) {
                     let response = JSON.parse(request.responseText);
