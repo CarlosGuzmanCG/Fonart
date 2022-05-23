@@ -197,14 +197,14 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
                 <h3>Administrador</h3>
             </center>
             <ul class="mt10">
-                <li><a href="category.php">Categoria</a></li>
-                <li><a href="D_order.php">detalle pedidos</a></li>
-                <li><a href="time.php">Tiempo</a></li>
-                <li><a href="orders.php">Pedido</a></li>
-                <li><a href="product.php">Producto</a></li>
-                <li><a href="role.php">Rol</a></li>
-                <li><a href="users.php">Usuario</a></li>
-                <li><a href="exit.php">Salir</a></li>
+                <li><a href="category_admin.php">Categoria</a></li>
+                <li><a href="D_order_admin.php">detalle pedidos</a></li>
+                <li><a href="time_admin.php">Tiempo</a></li>
+                <li><a href="orders_admin.php">Pedido</a></li>
+                <li><a href="product_admin.php">Producto</a></li>
+                <li><a href="role_admin.php">Rol</a></li>
+                <li><a href="users_admin.php">Usuario</a></li>
+                <li><a href="exit_admin.php">Salir</a></li>
             </ul>
         </div>
         <div class="body-page">
@@ -303,7 +303,7 @@ $result->free();
         fd.append('toke', document.getElementById('toke').value);
         fd.append('rol', document.getElementById('rol').value);
         let request = new XMLHttpRequest();
-        request.open('POST', 'php/users_save.php', true);
+        request.open('POST', 'queries_admin/users_save_queries_admin.php', true);
         request.onload = function () {
             if (request.readyState == 4 && request.status == 200) {
                 let response = JSON.parse(request.responseText);
@@ -323,7 +323,7 @@ $result->free();
             let fd = new FormData();
             fd.append('codpro', codpro);
             let request = new XMLHttpRequest();
-            request.open('POST', 'php/users_delete.php', true);
+            request.open('POST', 'queries_admin/users_delete_queries_admin.php', true);
             request.onload = function () {
                 if (request.readyState == 4 && request.status == 200) {
                     let response = JSON.parse(request.responseText);
@@ -370,7 +370,7 @@ $result->free();
         var formData = new FormData(document.getElementById("formProduct"));    
         formData.append("dato", "valor");     
         $.ajax({
-            url: "php/users_edit.php",
+            url: "queries_admin/users_edit_queries_admin.php",
             type: "post",
             dataType: "json",
             data: formData,
@@ -378,7 +378,7 @@ $result->free();
             contentType: false,
             processData: false,
             beforeSend: function() {
-              $('.msg').html("<img src='img/ajax-loader.gif' />");
+              
             },
         })
     });

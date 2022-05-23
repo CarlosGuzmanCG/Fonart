@@ -117,6 +117,12 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
     display: inline-block;
     padding: 0px 30px;
    }
+   .nav-item{
+    display: inline-flex;
+   }
+   .ms{
+    padding: 0px 10px;
+   }
   </style>
 </head>
 <header>
@@ -130,8 +136,12 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
         <p class="fs-1">Agregar productos.</p>
       </li>
       <li class="nav-item">
-        <div> <button type="button" class="btn btn-primary" onclick="show_modal('modal-producto')">Insertar</button>
-        </div>-->
+        <div> 
+          <button type="button" class="btn btn-primary" onclick="show_modal('modal-producto')">Insertar</button>
+        </div>
+        <div class="ms"> 
+          <button type="button" class="btn btn-primary" onclick="login()">Salir</button>
+        </div>
       </li>
     </div>
   </nav>
@@ -287,6 +297,9 @@ $result->free();
 }
 ?>
   <script type="text/javascript">
+function login(){
+			window.location.href="../../connection/log_in_connection.php";
+		}
   function show_id(id){
     $('#id').val(id);
   }
