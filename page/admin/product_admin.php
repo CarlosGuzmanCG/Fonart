@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
+include('../../connection/conf_connection.php');
 ?>
 
 <head>
@@ -183,7 +183,7 @@ echo
 <td>'.$row['descripcion_prod'].'</td>
 <td>'.$row['precio_prod'].'</td>
 <td>'.$row['stock_prod'].'</td>
-<td>'.$row['nombre_img_prod_1'].'</td>
+<td>'.$row['nombre_img_prod'].'</td>
 <td>'.$row['categoria_id'].'</td>
 <td>'.$row['datacreate'].'</td>
 <td class="td-option">

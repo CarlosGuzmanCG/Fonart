@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
+include('../../connection/conf_connection.php');
 ?>
 <head>
     <title>Administrador | Productos </title>

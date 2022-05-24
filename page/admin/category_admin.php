@@ -184,6 +184,8 @@ $result->free();
             request.send(fd);
         }
     }
+
+    
     $('.editbtn').on('click', function () {
 
         $tr = $(this).closest('tr');

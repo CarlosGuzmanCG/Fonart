@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
+include('../../connection/conf_connection.php');
 ?>
 
 <head>
@@ -78,7 +78,7 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 
     <div class="main-container">
         <div class="body-nav-bar">
-            <img src="/assets/Logo_FONART.png">
+            <img src="../../assets/Logo_FONART.png">
             <center>
                 <h3>Administrador</h3>
             </center>
@@ -100,9 +100,9 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
                     <tr>
                         <th>Id</th>
                         <th>Producto id</th>
-                        <th>Precio</th>
+                        <th>Usuario Id</th>
                         <th>Cantidad</th>
-                        <th>Token</th>
+                        <th>status</th>
                         <th class="td-option">Opciones</th>
                     </tr>
                 </thead>
@@ -112,17 +112,19 @@ if ($result = $conn->query($query)) {
 while ($row = $result->fetch_assoc()) {
 echo
 '
+
+
 <tr>
-<td>'.$row['id_temp'].'</td>
+<td>'.$row['id_temp_carrito'].'</td>
 <td>'.$row['producto_id'].'</td>
-<td>'.$row['precio_temp'].'</td>
+<td>'.$row['usua_id_temp'].'</td>
 <td>'.$row['cantidad_temp'].'</td>
-<td>'.$row['token'].'</td>
+<td>'.$row['status_temp'].'</td>
 
 <td class="td-option">
 <div class="div-flex div-td-button">
 <!--<button type="button" class="btn btn-success editbtn" data-bs-toggle="modal" data-bs-target="#editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>-->
-<button type="button" onclick="delete_product('.$row['id_temp'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+<button type="button" onclick="delete_product('.$row['id_temp_carrito'].')" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
 
 </div>
 </td>
@@ -152,7 +154,7 @@ $result->free();
         fd.append('nombre', document.getElementById('nomcat').value);
         fd.append('descripcion', document.getElementById('descrip').value);
         let request = new XMLHttpRequest();
-        request.open('POST', 'php/category_save.php', true);
+        request.open('POST', 'queries_admin/category_save_queries.php', true);
         request.onload = function () {
             if (request.readyState == 4 && request.status == 200) {
                 let response = JSON.parse(request.responseText);

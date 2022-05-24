@@ -1,6 +1,6 @@
 <html lang="en">
 <?php 
-include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
+include('../../connection/conf_connection.php');
 ?>
 
 <head>
@@ -269,11 +269,14 @@ include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
 $query = "SELECT * FROM producto";
 if ($result = $conn->query($query)) {
 while ($row = $result->fetch_assoc()) {
+
 echo '
+
+
 <div class="lm">
 <div class="lm2"></div>
 <div class="card" style="width: 18rem;">
-<img src="data:image/jpeg;base64,'.base64_encode($row['imagen_prod_1']).'"/>
+<img src="data:image/jpeg;base64, ' .base64_encode($row['imagen_prod']). '"/>
 <div class="card-body">
 
 <h5 class="card-title" name="idc" id="idc">'.$row['id_prod'].'</h5>
