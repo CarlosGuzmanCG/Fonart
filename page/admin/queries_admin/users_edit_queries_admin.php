@@ -1,5 +1,5 @@
 <?php
-	include('/home/pablo/Documentos/GitHub/fonart/connection/conf.php');
+	 include '../../connection/conf_connection.php';
 
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];

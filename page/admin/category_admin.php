@@ -129,6 +129,7 @@ echo
 $result->free();
 }
 ?>
+
 </body>
 </table>
 <button class="mt10" onclick="show_modal('modal-categoria')">Editar</button>
