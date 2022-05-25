@@ -20,9 +20,9 @@ if(isset($_POST['submit'])){
       $mensaje[] = 'el correo es ' . $row['email_usua'];
     }*/
     if($puesto['usuario_rol']==1){
-      header('location:prueba3.html');
+      header('location:../../page/admin/category_admin.php');
     }else if($puesto['usuario_rol']==2){
-      header('location:../../page/long_rec/test.php');
+      header('location:../../page/seller/seller_page.php');
     }else if($puesto['usuario_rol']==3){
     header('location:../../page/long_rec/major_long_rec.php');
     }

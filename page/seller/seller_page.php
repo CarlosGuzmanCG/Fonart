@@ -301,7 +301,7 @@ $result->free();
 ?>
   <script type="text/javascript">
 function login(){
-			window.location.href="../../connection/log_in_connection.php";
+			window.location.href="../../index.php";
 		}
   function show_id(id){
     $('#id').val(id);

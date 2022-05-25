@@ -6,10 +6,8 @@
 </head>
 <body>
 	<button onclick="login()">Ingresar</button>
-	<script type="text/javascript">
-		function login(){
-			window.location.href="../../connection/log_in_connection.php";
-		}
-	</script>
+<?php
+header('location:../../index.php');
+?>
 </body>
 </html>

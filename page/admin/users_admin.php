@@ -367,7 +367,7 @@ $result->free();
     $("#formProduct").on("submit", function(e){
         e.preventDefault();
         var f = $(this);
-        var formData = new FormData(document.getElementById("formProduct"));    
+        var formData = new FormData(document.getElementById("formProduct"));
         formData.append("dato", "valor");     
         $.ajax({
             url: "queries_admin/users_edit_queries_admin.php",
