@@ -11,12 +11,12 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
 
 - [x] Creación de la interfaz de login
 - [x] Creación de la interfaz de registro
-- [] Creación de la interfaz del administrador
-- [] Creación de la interfaz del vendedor
-- [] Creación de la interfaz para agregar productos
+- [x] Creación de la interfaz del administrador
+- [x] Creación de la interfaz del vendedor
+- [x] Creación de la interfaz para agregar productos
 - [x] Creación de la interfaz de inicio
 - [x] Creación de la interfaz de usuario
-- [] Creación del carrito de compras
+- [x] Creación del carrito de compras
 - [x] Creación de quejas [nombre, correo y detalle]
 
 ## Lista de actividades para el back-end
@@ -25,14 +25,14 @@ solamente es un prototipo, el sitio web principalmente es para la materia de Tal
 - [x] Inicio de sesión por rol
 - [x] obtener productos de la DB
 - Administrador:
-  - - [] Eliminar productos
-  - - [] Registrar administradores
-  - - [] Registrar vendedores
-  - - [] Ver productos
+  - - [x] Eliminar productos
+  - - [x] Registrar administradores
+  - - [x] Registrar vendedores
+  - - [x] Ver productos
 - Cliente
   - - [x] Ver productos
   - - [x] Actualizar información
   - - [x] Agregar productos al carrito de compras
   - - [x] Eliminar productos del carrito de compras
   - - [x] Formulario
-  - - [] Método de pago
+  - - [x] Método de pago
